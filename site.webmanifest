@@ -1,0 +1,24 @@
+{
+  "name": "9 Pasos para una Limpieza Facial Profesional",
+  "short_name": "Limpieza Facial",
+  "icons": [
+    {
+      "src": "img/favicon_32x32.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "img/favicon_32x32.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "img/favicon_32x32.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#9be031",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
