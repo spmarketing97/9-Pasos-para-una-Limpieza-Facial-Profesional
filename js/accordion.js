@@ -1,55 +1,78 @@
 /**
- * Acordeón minimalista para módulos
+ * Acordeón minimalista para módulos - Versión compatible con GitHub Pages
  * - Maneja la apertura y cierre de módulos al hacer clic en los títulos
  * - Permite tener un solo módulo abierto a la vez
  * - Abre el primer módulo por defecto
  */
+
+// Enfoque directo para GitHub Pages
 document.addEventListener('DOMContentLoaded', function() {
-    // Función para inicializar el acordeón
-    function initAccordion() {
-        const moduloTitulos = document.querySelectorAll('.modulo-minimalista h3');
-        
-        if (moduloTitulos.length === 0) {
-            console.log('No se encontraron elementos de acordeón');
-            return;
-        }
-        
-        console.log('Inicializando acordeón con ' + moduloTitulos.length + ' módulos');
-        
-        // Eliminar eventos previos para evitar duplicados
-        moduloTitulos.forEach((titulo, index) => {
-            // Clonar y reemplazar para eliminar eventos previos
-            const clonedTitulo = titulo.cloneNode(true);
-            titulo.parentNode.replaceChild(clonedTitulo, titulo);
-            
-            // Agregar nuevo evento de clic
-            clonedTitulo.addEventListener('click', function(e) {
-                e.preventDefault();
-                const modulo = this.parentElement;
-                
-                // Toggle la clase active en el módulo actual
-                modulo.classList.toggle('active');
-                
-                // Opcional: cerrar otros módulos cuando se abre uno nuevo
-                document.querySelectorAll('.modulo-minimalista h3').forEach(otroTitulo => {
-                    if (otroTitulo !== this) {
-                        otroTitulo.parentElement.classList.remove('active');
-                    }
-                });
-                
-                console.log('Clic en módulo: ' + index);
-            });
-        });
-        
-        // Abrir el primer módulo por defecto
-        if (moduloTitulos.length > 0) {
-            moduloTitulos[0].parentElement.classList.add('active');
-        }
+    setupAccordion();
+});
+
+// También inicializar cuando la ventana se carga completamente
+window.addEventListener('load', function() {
+    setupAccordion();
+});
+
+// Inicializar también si el DOM ya está cargado
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(function() {
+        setupAccordion();
+    }, 100);
+}
+
+// Función principal para configurar el acordeón
+function setupAccordion() {
+    console.log('Configurando acordeón para GitHub Pages...');
+    
+    // Seleccionar todos los módulos y títulos
+    const modulos = document.querySelectorAll('.modulo-minimalista');
+    
+    if (modulos.length === 0) {
+        console.log('No se encontraron módulos de acordeón');
+        return;
     }
     
-    // Inicializar el acordeón
-    initAccordion();
+    console.log('Encontrados ' + modulos.length + ' módulos de acordeón');
     
-    // También inicializar cuando la ventana se carga completamente
-    window.addEventListener('load', initAccordion);
-});
+    // Cerrar todos los módulos primero
+    modulos.forEach(function(modulo) {
+        modulo.classList.remove('active');
+        
+        // Obtener el título del módulo
+        const titulo = modulo.querySelector('h3');
+        
+        if (titulo) {
+            // Asignar evento de clic directamente
+            titulo.onclick = function(e) {
+                e.preventDefault();
+                
+                // Cerrar todos los módulos primero
+                modulos.forEach(function(m) {
+                    m.classList.remove('active');
+                });
+                
+                // Abrir el módulo actual
+                modulo.classList.add('active');
+                
+                return false; // Prevenir comportamiento por defecto
+            };
+        }
+    });
+    
+    // Abrir el primer módulo por defecto
+    if (modulos.length > 0) {
+        modulos[0].classList.add('active');
+    }
+}
+
+// Asegurar que el acordeón se inicialice después de un tiempo
+setTimeout(function() {
+    setupAccordion();
+}, 500);
+
+// Intentar una última vez después de 2 segundos
+setTimeout(function() {
+    setupAccordion();
+}, 2000);
