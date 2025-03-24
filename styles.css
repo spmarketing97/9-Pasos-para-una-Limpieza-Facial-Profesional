@@ -320,81 +320,87 @@ section {
     margin-bottom: 50px;
 }
 
-.modules {
+/* Diseño acordeón minimalista para módulos */
+.modules-minimalista {
     max-width: 900px;
     margin: 0 auto;
 }
 
-.module {
+.modulo-minimalista {
     background-color: white;
     border-radius: var(--border-radius);
     margin-bottom: 20px;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
     overflow: hidden;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.module:hover {
-    transform: translateX(5px);
+.modulo-minimalista:hover {
+    transform: translateY(-3px);
 }
 
-.module-header {
-    padding: 20px;
+.modulo-minimalista h3 {
+    padding: 15px 20px;
     background-color: var(--secondary-color);
     color: white;
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    border-left: 5px solid var(--primary-color);
+    cursor: pointer;
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.module-header:hover {
-    background-color: #3a526e; /* Un tono más claro que secondary-color */
-}
-
-.module-header h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0;
-}
-
-.toggle-icon {
-    background-color: rgba(255, 255, 255, 0.1);
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.toggle-icon i {
+.modulo-minimalista h3::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
     transition: transform 0.3s ease;
 }
 
-.module-content {
-    padding: 0;
+.modulo-minimalista.active h3::after {
+    content: '-';
+    transform: rotate(0deg);
+}
+
+.modulo-contenido {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    background-color: white;
+    transition: max-height 0.5s ease;
+    padding: 0 20px;
 }
 
-.module.active .module-content {
+.modulo-minimalista.active .modulo-contenido {
+    max-height: 1000px;
     padding: 20px;
-    max-height: 500px;
 }
 
-.module.active .toggle-icon i {
-    transform: rotate(45deg);
-}
-
-.module-content ul {
+.modulo-contenido ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.module-content li {
+.modulo-contenido li {
     padding: 10px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.modulo-contenido li:before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.modulo-contenido li:last-child {
+    border-bottom: none;
 }
 
 .module-content li:last-child {
@@ -419,26 +425,10 @@ section {
     align-items: center;
     max-width: 800px;
     margin: 0 auto;
-}
-
-.producer-image {
-    margin-bottom: 30px;
-}
-
-.profile-circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: var(--light-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--box-shadow);
-}
-
-.profile-circle i {
-    font-size: 4rem;
-    color: var(--secondary-color);
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
 }
 
 .producer-bio h3 {
@@ -486,12 +476,34 @@ section {
 }
 
 .price {
-    font-size: 5rem;
+    font-size: 3.5rem;
     font-weight: 700;
-    color: var(--secondary-color);
-    margin: 30px 0;
+    margin: 20px 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    color: var(--primary-color);
     position: relative;
+}
+
+.price s {
+    color: #888;
+    text-decoration: line-through;
+}
+
+.offer-label {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-left: 10px;
+    transform: rotate(-5deg);
     display: inline-block;
+    position: absolute;
+    top: -15px;
+    right: -5px;
 }
 
 .currency {
@@ -778,6 +790,8 @@ section {
 
 .testimonial-slide.active {
     display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 .testimonial-content {
@@ -993,4 +1007,10 @@ section {
     .countdown-timer {
         font-size: 1.2rem;
     }
-} 
+}
+
+.current-price {
+    color: var(--secondary-color);
+    font-size: 4rem;
+    margin: 5px 0 20px;
+}

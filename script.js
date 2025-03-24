@@ -128,33 +128,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicia el contador
     startCountdown();
     
-    // Acordeón para los módulos del curso
-    const moduleHeaders = document.querySelectorAll('.module-header');
-    
-    moduleHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            const module = this.parentElement;
-            
-            // Cierra todos los módulos activos
-            const activeModules = document.querySelectorAll('.module.active');
-            activeModules.forEach(activeModule => {
-                if (activeModule !== module) {
-                    activeModule.classList.remove('active');
-                }
-            });
-            
-            // Alterna el estado del módulo actual
-            module.classList.toggle('active');
-            
-            // Cambia el ícono
-            const icon = this.querySelector('.toggle-icon i');
-            if (module.classList.contains('active')) {
-                icon.className = 'fas fa-minus';
-            } else {
-                icon.className = 'fas fa-plus';
-            }
-        });
-    });
+    // La implementación del acordeón se ha movido a js/accordion.js
+    // para mejorar la organización del código y evitar conflictos
+
     
     // Animación para números en contador de precio
     const animateCountUp = () => {
@@ -247,56 +223,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     });
 
-    // Slider de testimonios
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const prevButton = document.querySelector('.prev-button');
-    const nextButton = document.querySelector('.next-button');
-    let currentSlide = 0;
-
-    // Mostrar el primer slide al cargar
-    if (slides.length > 0) {
-        slides[0].classList.add('active');
-    }
-
-    // Función para mostrar un slide específico
-    function showSlide(index) {
-        // Ocultar todos los slides
-        slides.forEach(slide => {
-            slide.classList.remove('active');
-            slide.style.display = 'none';
-        });
-        
-        // Mostrar el slide actual
-        slides[index].classList.add('active');
-        slides[index].style.display = 'block';
-    }
-
-    // Función para ir al siguiente slide
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    // Función para ir al slide anterior
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    // Asignar eventos a los botones
-    if (nextButton && prevButton) {
-        nextButton.addEventListener('click', nextSlide);
-        prevButton.addEventListener('click', prevSlide);
-    }
-
-    // Autoplay opcional del slider (cada 5 segundos)
-    const autoplayInterval = setInterval(nextSlide, 5000);
-
-    // Detener autoplay al pasar el mouse por encima
-    const sliderContainer = document.querySelector('.testimonial-slider');
-    if (sliderContainer) {
-        sliderContainer.addEventListener('mouseenter', function() {
-            clearInterval(autoplayInterval);
-        });
-    }
-}); 
+    // La funcionalidad del slider de testimonios se ha movido a js/testimonial-slider.js
+    // para mejorar la organización del código y evitar conflictos
+});
