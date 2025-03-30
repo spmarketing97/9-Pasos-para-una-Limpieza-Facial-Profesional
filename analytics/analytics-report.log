@@ -1,0 +1,132 @@
+2025-03-30 04:50:43,107 - analytics-report - INFO - Procesamiento de datos completado
+2025-03-30 04:50:43,110 - analytics-report - INFO - Informe generado: analytics/reports/weekly_report_2025-03-30.html
+2025-03-30 04:50:45,319 - analytics-report - ERROR - Error al enviar el correo: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-39c0b7a41f5sm7299745f8f.84 - gsmtp')
+2025-03-30 04:50:45,323 - analytics-report - INFO - Proceso completado correctamente
+2025-03-30 04:52:57,127 - weekly-report-scheduler - INFO - Generando informe de prueba...
+2025-03-30 04:52:58,123 - analytics-report - ERROR - Error: name 'AnalyticsReporter' is not defined
+2025-03-30 04:52:58,256 - weekly-report-scheduler - INFO - Informe de prueba generado.
+2025-03-30 04:53:27,151 - weekly-report-scheduler - INFO - Generando informe de prueba...
+2025-03-30 04:53:28,245 - analytics-report - INFO - Generando un informe de prueba con datos de ejemplo...
+2025-03-30 04:53:28,247 - analytics-report - INFO - Procesamiento de datos completado
+2025-03-30 04:53:28,249 - analytics-report - INFO - No hay datos disponibles. Generando un informe de prueba.
+2025-03-30 04:53:29,032 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 04:53:29,034 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 04:53:31,723 - analytics-report - INFO - Informe generado: analytics/reports/weekly_report_2025-03-30.html
+2025-03-30 04:53:31,723 - analytics-report - INFO - Informe de prueba generado: analytics/reports/weekly_report_2025-03-30.html
+2025-03-30 04:53:31,960 - weekly-report-scheduler - INFO - Informe de prueba generado.
+2025-03-30 04:54:44,831 - analytics-report - INFO - Generando un informe de prueba con datos de ejemplo...
+2025-03-30 04:54:44,834 - analytics-report - INFO - Procesamiento de datos completado
+2025-03-30 04:54:44,838 - analytics-report - INFO - No hay datos disponibles. Generando un informe de prueba.
+2025-03-30 04:54:45,372 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 04:54:45,372 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 04:54:49,269 - analytics-report - INFO - Informe generado: analytics/reports/weekly_report_2025-03-30.html
+2025-03-30 04:54:49,310 - analytics-report - INFO - Informe de prueba generado: analytics/reports/weekly_report_2025-03-30.html
+2025-03-30 04:55:23,750 - analytics-report - INFO - Generando un informe de prueba con datos de ejemplo...
+2025-03-30 04:55:23,751 - analytics-report - INFO - Procesamiento de datos completado
+2025-03-30 04:55:23,754 - analytics-report - INFO - No hay datos disponibles. Generando un informe de prueba.
+2025-03-30 04:55:23,967 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 04:55:23,968 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 04:55:26,967 - analytics-report - INFO - Informe generado: reports\weekly_report_2025-03-30.html
+2025-03-30 04:55:26,967 - analytics-report - INFO - Informe de prueba generado: reports\weekly_report_2025-03-30.html
+2025-03-30 04:55:37,509 - analytics-report - INFO - Generando un informe de prueba con datos de ejemplo...
+2025-03-30 04:55:37,510 - analytics-report - INFO - Procesamiento de datos completado
+2025-03-30 04:55:37,516 - analytics-report - INFO - No hay datos disponibles. Generando un informe de prueba.
+2025-03-30 04:55:37,807 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 04:55:37,814 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 04:55:40,363 - analytics-report - INFO - Informe generado: reports\weekly_report_2025-03-30.html
+2025-03-30 04:55:42,445 - analytics-report - INFO - Intentando iniciar sesión con: hristiankrasimirov7@gmail.com
+2025-03-30 04:55:43,891 - analytics-report - ERROR - Error al enviar el correo: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-39c1845e66esm1172047f8f.18 - gsmtp')
+2025-03-30 04:55:43,897 - analytics-report - INFO - Por favor, verifica que:
+2025-03-30 04:55:43,897 - analytics-report - INFO - 1. Has habilitado el acceso a aplicaciones menos seguras en tu cuenta de Google
+2025-03-30 04:55:43,897 - analytics-report - INFO - 2. Has generado correctamente la contraseña de aplicación
+2025-03-30 04:55:43,897 - analytics-report - INFO - 3. No hay restricciones de firewall o red que bloqueen la conexión SMTP
+2025-03-30 04:55:43,900 - analytics-report - INFO - Informe de prueba generado: reports\weekly_report_2025-03-30.html
+2025-03-30 05:01:23,684 - analytics-report - INFO - Generando un informe de prueba con datos de ejemplo...
+2025-03-30 05:01:23,685 - analytics-report - INFO - Procesamiento de datos completado
+2025-03-30 05:01:23,688 - analytics-report - INFO - No hay datos disponibles. Generando un informe de prueba.
+2025-03-30 05:01:23,910 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 05:01:23,913 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 05:01:26,343 - analytics-report - INFO - Informe generado: reports\weekly_report_2025-03-30.html
+2025-03-30 05:01:27,937 - analytics-report - INFO - Intentando iniciar sesión con: hristiankrasimirov7@gmail.com
+2025-03-30 05:01:28,566 - analytics-report - ERROR - Error al enviar el correo: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-39c0b7a4294sm7248442f8f.89 - gsmtp')
+2025-03-30 05:01:28,566 - analytics-report - INFO - Por favor, verifica que:
+2025-03-30 05:01:28,567 - analytics-report - INFO - 1. Has habilitado el acceso a aplicaciones menos seguras en tu cuenta de Google
+2025-03-30 05:01:28,568 - analytics-report - INFO - 2. Has generado correctamente la contraseña de aplicación
+2025-03-30 05:01:28,569 - analytics-report - INFO - 3. No hay restricciones de firewall o red que bloqueen la conexión SMTP
+2025-03-30 05:01:28,569 - analytics-report - INFO - Informe de prueba generado: reports\weekly_report_2025-03-30.html
+2025-03-30 05:02:08,714 - analytics-report - INFO - Generando un informe de prueba con datos de ejemplo...
+2025-03-30 05:02:08,715 - analytics-report - INFO - Procesamiento de datos completado
+2025-03-30 05:02:08,717 - analytics-report - INFO - No hay datos disponibles. Generando un informe de prueba.
+2025-03-30 05:02:08,939 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 05:02:08,941 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 05:02:12,050 - analytics-report - INFO - Informe generado: reports\weekly_report_2025-03-30.html
+2025-03-30 05:02:12,068 - analytics-report - INFO - Conectando al servidor SMTP: smtp.gmail.com:587
+2025-03-30 05:02:13,166 - analytics-report - INFO - Iniciando conexión TLS
+2025-03-30 05:02:13,657 - analytics-report - INFO - Intentando iniciar sesión con: hristiankrasimirov7@gmail.com
+2025-03-30 05:02:13,657 - analytics-report - INFO - Contraseña de aplicación utilizada: hvyj... (parcialmente oculta)
+2025-03-30 05:02:15,022 - analytics-report - ERROR - Error al enviar el correo: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-39c0b66b015sm7616393f8f.54 - gsmtp')
+2025-03-30 05:02:15,022 - analytics-report - INFO - 
+=== GUÍA PARA SOLUCIONAR PROBLEMAS DE AUTENTICACIÓN ===
+2025-03-30 05:02:15,023 - analytics-report - INFO - 1. Verifica que has habilitado la verificación en dos pasos en tu cuenta de Google
+2025-03-30 05:02:15,023 - analytics-report - INFO -    Visita: https://myaccount.google.com/security
+2025-03-30 05:02:15,024 - analytics-report - INFO - 2. Genera una contraseña de aplicación específica siguiendo estos pasos:
+2025-03-30 05:02:15,024 - analytics-report - INFO -    a. Ve a https://myaccount.google.com/apppasswords
+2025-03-30 05:02:15,025 - analytics-report - INFO -    b. Selecciona 'Otra (nombre personalizado)' e introduce 'Informe Analytics'
+2025-03-30 05:02:15,025 - analytics-report - INFO -    c. Copia la contraseña generada exactamente como aparece (sin espacios adicionales)
+2025-03-30 05:02:15,025 - analytics-report - INFO - 3. Asegúrate de que no hay restricciones de firewall o red que bloqueen la conexión SMTP
+2025-03-30 05:02:15,026 - analytics-report - INFO - 4. Si has cambiado recientemente tu contraseña principal, debes generar una nueva contraseña de aplicación
+2025-03-30 05:02:15,026 - analytics-report - INFO - =======================================================
+2025-03-30 05:02:15,027 - analytics-report - INFO - Informe de prueba generado: reports\weekly_report_2025-03-30.html
+2025-03-30 05:02:35,658 - analytics-report - INFO - Generando un informe de prueba con datos de ejemplo...
+2025-03-30 05:02:35,658 - analytics-report - INFO - Procesamiento de datos completado
+2025-03-30 05:02:35,667 - analytics-report - INFO - No hay datos disponibles. Generando un informe de prueba.
+2025-03-30 05:02:35,877 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 05:02:35,877 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 05:02:38,346 - analytics-report - INFO - Informe generado: reports\weekly_report_2025-03-30.html
+2025-03-30 05:02:38,364 - analytics-report - INFO - Conectando al servidor SMTP: smtp.gmail.com:587
+2025-03-30 05:02:39,620 - analytics-report - INFO - Iniciando conexión TLS
+2025-03-30 05:02:39,840 - analytics-report - INFO - Intentando iniciar sesión con: hristiankrasimirov7@gmail.com
+2025-03-30 05:02:39,840 - analytics-report - INFO - Contraseña de aplicación utilizada: hvyj... (parcialmente oculta)
+2025-03-30 05:02:40,335 - analytics-report - ERROR - Error al enviar el correo: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-43d90000f48sm78437535e9.37 - gsmtp')
+2025-03-30 05:02:40,336 - analytics-report - INFO - 
+=== GUÍA PARA SOLUCIONAR PROBLEMAS DE AUTENTICACIÓN ===
+2025-03-30 05:02:40,336 - analytics-report - INFO - 1. Verifica que has habilitado la verificación en dos pasos en tu cuenta de Google
+2025-03-30 05:02:40,337 - analytics-report - INFO -    Visita: https://myaccount.google.com/security
+2025-03-30 05:02:40,337 - analytics-report - INFO - 2. Genera una contraseña de aplicación específica siguiendo estos pasos:
+2025-03-30 05:02:40,338 - analytics-report - INFO -    a. Ve a https://myaccount.google.com/apppasswords
+2025-03-30 05:02:40,338 - analytics-report - INFO -    b. Selecciona 'Otra (nombre personalizado)' e introduce 'Informe Analytics'
+2025-03-30 05:02:40,338 - analytics-report - INFO -    c. Copia la contraseña generada exactamente como aparece (sin espacios adicionales)
+2025-03-30 05:02:40,339 - analytics-report - INFO - 3. Asegúrate de que no hay restricciones de firewall o red que bloqueen la conexión SMTP
+2025-03-30 05:02:40,339 - analytics-report - INFO - 4. Si has cambiado recientemente tu contraseña principal, debes generar una nueva contraseña de aplicación
+2025-03-30 05:02:40,340 - analytics-report - INFO - =======================================================
+2025-03-30 05:02:40,340 - analytics-report - INFO - Informe de prueba generado: reports\weekly_report_2025-03-30.html
+2025-03-30 05:03:56,280 - analytics-report - INFO - Generando un informe de prueba con datos de ejemplo...
+2025-03-30 05:03:56,281 - analytics-report - INFO - Procesamiento de datos completado
+2025-03-30 05:03:56,283 - analytics-report - INFO - No hay datos disponibles. Generando un informe de prueba.
+2025-03-30 05:03:56,515 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 05:03:56,517 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 05:03:58,978 - analytics-report - INFO - Informe generado: reports\weekly_report_2025-03-30.html
+2025-03-30 05:03:58,995 - analytics-report - INFO - Conectando al servidor SMTP: smtp.gmail.com:587
+2025-03-30 05:03:58,995 - analytics-report - INFO - Iniciando conexión con hristiankrasimirov7@gmail.com
+2025-03-30 05:04:01,526 - analytics-report - INFO - Intentando autenticación...
+2025-03-30 05:04:02,085 - analytics-report - ERROR - Error al enviar el correo: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-43d82e83477sm124649775e9.16 - gsmtp')
+2025-03-30 05:04:02,085 - analytics-report - INFO - 
+=== GUÍA PARA SOLUCIONAR PROBLEMAS DE AUTENTICACIÓN ===
+2025-03-30 05:04:02,085 - analytics-report - INFO - 1. Verifica que has habilitado la verificación en dos pasos en tu cuenta de Google
+2025-03-30 05:04:02,087 - analytics-report - INFO -    Visita: https://myaccount.google.com/security
+2025-03-30 05:04:02,087 - analytics-report - INFO - 2. Genera una contraseña de aplicación específica siguiendo estos pasos:
+2025-03-30 05:04:02,087 - analytics-report - INFO -    a. Ve a https://myaccount.google.com/apppasswords
+2025-03-30 05:04:02,087 - analytics-report - INFO -    b. Selecciona 'Otra (nombre personalizado)' e introduce 'Informe Analytics'
+2025-03-30 05:04:02,088 - analytics-report - INFO -    c. Copia la contraseña generada EXACTAMENTE como aparece (incluye los espacios)
+2025-03-30 05:04:02,088 - analytics-report - INFO - 3. Si la contraseña contiene espacios, prueba incluirlos tal cual en la configuración
+2025-03-30 05:04:02,088 - analytics-report - INFO - 4. Asegúrate de que no hay restricciones de firewall o red que bloqueen la conexión SMTP
+2025-03-30 05:04:02,089 - analytics-report - INFO - 5. Si has cambiado recientemente tu contraseña principal, debes generar una nueva contraseña de aplicación
+2025-03-30 05:04:02,089 - analytics-report - INFO - =======================================================
+2025-03-30 05:04:02,090 - analytics-report - INFO - Informe de prueba generado: reports\weekly_report_2025-03-30.html
+2025-03-30 05:06:13,210 - analytics-report - INFO - Generando un informe de prueba con datos de ejemplo...
+2025-03-30 05:06:13,211 - analytics-report - INFO - Procesamiento de datos completado
+2025-03-30 05:06:13,213 - analytics-report - INFO - No hay datos disponibles. Generando un informe de prueba.
+2025-03-30 05:06:13,478 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 05:06:13,479 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 05:06:16,341 - analytics-report - INFO - Informe generado: reports\weekly_report_2025-03-30.html
+2025-03-30 05:06:16,341 - analytics-report - INFO - Informe de prueba generado: reports\weekly_report_2025-03-30.html

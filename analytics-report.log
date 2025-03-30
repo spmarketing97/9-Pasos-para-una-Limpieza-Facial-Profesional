@@ -1,0 +1,16 @@
+2025-03-30 05:06:12,191 - weekly-report-scheduler - INFO - Generando un informe inicial de prueba...
+2025-03-30 05:06:16,586 - weekly-report-scheduler - INFO - Tarea programada instalada correctamente.
+2025-03-30 05:06:16,586 - weekly-report-scheduler - INFO - El informe se generará automáticamente cada lunes a las 09:00.
+2025-03-30 05:06:16,626 - weekly-report-scheduler - INFO - Verificación: la tarea está instalada correctamente.
+2025-03-30 05:06:21,792 - analytics-report - INFO - Generando un informe de prueba con datos de ejemplo...
+2025-03-30 05:06:21,793 - analytics-report - INFO - Procesamiento de datos completado
+2025-03-30 05:06:21,794 - analytics-report - INFO - No hay datos disponibles. Generando un informe de prueba.
+2025-03-30 05:06:22,011 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 05:06:22,017 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-30 05:06:25,337 - analytics-report - INFO - Informe generado: reports\weekly_report_2025-03-30.html
+2025-03-30 05:06:25,357 - analytics-report - INFO - Conectando al servidor SMTP: smtp.gmail.com:587
+2025-03-30 05:06:25,357 - analytics-report - INFO - Iniciando conexión con solucionesworld2016@gmail.com
+2025-03-30 05:06:27,040 - analytics-report - INFO - Intentando autenticación...
+2025-03-30 05:06:27,310 - analytics-report - INFO - Autenticación exitosa!
+2025-03-30 05:06:31,076 - analytics-report - INFO - Informe enviado por correo electrónico a: solucionesworld2016@gmail.com
+2025-03-30 05:06:31,076 - analytics-report - INFO - Informe de prueba generado: reports\weekly_report_2025-03-30.html

@@ -34,6 +34,27 @@
     <meta name="theme-color" content="#9be031">
 </head>
 <body>
+    <!-- Menú de navegación sticky -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="navbar-links">
+                    <a href="#" class="nav-link">Inicio</a>
+                    <a href="#contenido" class="nav-link">Contenido</a>
+                    <a href="#beneficios" class="nav-link">Beneficios</a>
+                    <a href="#testimonios" class="nav-link">Testimonios</a>
+                    <a href="#productora" class="nav-link">Productora</a>
+                    <a href="#precio" class="nav-link">Precio</a>
+                    <a href="#certificado" class="nav-link">Certificado</a>
+                    <a href="#precio" class="btn btn-primary nav-btn">¡Quiero Inscribirme!</a>
+                </div>
+                <div class="navbar-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <!-- Contador Regresivo Flotante -->
     <div class="countdown-sticky">
         <div class="countdown-container">
@@ -53,7 +74,6 @@
             <div class="header-content" data-aos="fade-up">
                 <h1>9 Pasos para una<br><span class="highlight">LIMPIEZA FACIAL</span><br>PROFESIONAL</h1>
                 <div class="cta-buttons">
-                    <a href="https://hotm.art/PasosparaunaLimpiezaFacialProfesional-CheckOut" class="btn btn-primary" target="_blank" aria-label="Inscribirse al curso">¡Quiero Inscribirme!</a>
                     <a href="#contenido" class="btn btn-secondary" aria-label="Ver el contenido del curso">Ver Contenido</a>
                 </div>
             </div>
@@ -61,9 +81,11 @@
     </header>
 
     <!-- Video Sección -->
-    <section class="video-section">
+    <section id="video" class="video-section">
         <div class="container">
-            <h2 data-aos="fade-up">DESCUBRE CÓMO LO VAS A LOGRAR</h2>
+            <div class="video-title-container" data-aos="fade-up">
+                <h2 class="video-title text-center">Descubre cómo lo vas a lograr</h2>
+            </div>
             <div class="video-container" data-aos="fade-up">
                 <video id="banner-video" autoplay muted playsinline loop controls width="100%">
                     <source src="Video/banner-video.mp4" type="video/mp4">
@@ -84,7 +106,7 @@
     </section>
 
     <!-- Beneficios -->
-    <section class="benefits">
+    <section id="beneficios" class="benefits">
         <div class="container">
             <h2 data-aos="fade-up">¿QUÉ VAS A LOGRAR?</h2>
             <div class="benefits-grid">
@@ -118,7 +140,7 @@
     </section>
 
     <!-- Testimonios -->
-    <section class="testimonials">
+    <section id="testimonios" class="testimonials">
         <div class="container">
             <h2 data-aos="fade-up">LO QUE DICEN NUESTROS ALUMNOS</h2>
             <div class="testimonial-slider" data-aos="fade-up">
@@ -222,7 +244,7 @@
     </section>
 
     <!-- Acerca de la Productora -->
-    <section class="about-producer">
+    <section id="productora" class="about-producer">
         <div class="container">
             <h2 data-aos="fade-up">ACERCA DE LA PRODUCTORA</h2>
             <div class="producer-info" data-aos="fade-up">
@@ -351,8 +373,6 @@
         </div>
     </section>
 
-
-
     <!-- Precio y CTA -->
     <section id="precio" class="price-section">
         <div class="container">
@@ -400,13 +420,25 @@
     </section>
 
     <!-- Certificación -->
-    <section class="certification">
+    <section id="certificado" class="certification">
         <div class="container">
             <h2 data-aos="fade-up">TU CERTIFICADO PROFESIONAL</h2>
             <p data-aos="fade-up">Al finalizar el curso, recibirás un certificado avalado por Hotmart y Seminarios Online.</p>
             <div class="certificate-image" data-aos="fade-up">
                 <!-- Tercera imagen (certificado) -->
                 <img src="img/certificado.jpg" alt="Certificado de finalización" class="certificate-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2 data-aos="fade-up">CONTÁCTANOS</h2>
+            <p data-aos="fade-up">¿Tienes dudas o necesitas más información? Estamos aquí para ayudarte.</p>
+            <div class="contact-buttons" data-aos="fade-up">
+                <a href="mailto:hristiankrasimirov7@gmail.com?subject=9 pasos para una limpieza facial" class="btn btn-email"><i class="fas fa-envelope"></i> Contáctanos por Email</a>
+                <a href="https://t.me/SPMarketing_KR" class="btn btn-telegram" target="_blank"><i class="fab fa-telegram"></i> Contáctanos en Telegram</a>
             </div>
         </div>
     </section>
@@ -418,21 +450,59 @@
                 <div class="logo">
                     <img src="img/logo.png" alt="Logo de MasterClasses.La">
                 </div>
-                <div class="footer-info">
-                    <div class="footer-contact">
-                        <h4>Conviértete en un profesional</h4>
-                        <p>Aprende los secretos de la limpieza facial profesional de la mano de expertos del sector.</p>
+                
+                <!-- Enlaces de navegación en el footer -->
+                <div class="footer-nav">
+                    <div class="footer-nav-column">
+                        <h4>Navegación</h4>
+                        <ul>
+                            <li><a href="#" class="footer-link">Inicio</a></li>
+                            <li><a href="#contenido" class="footer-link">Contenido</a></li>
+                            <li><a href="#beneficios" class="footer-link">Beneficios</a></li>
+                            <li><a href="#testimonios" class="footer-link">Testimonios</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-column">
+                        <h4>Información</h4>
+                        <ul>
+                            <li><a href="#productora" class="footer-link">Productora</a></li>
+                            <li><a href="#precio" class="footer-link">Precio</a></li>
+                            <li><a href="#certificado" class="footer-link">Certificado</a></li>
+                            <li><a href="#contacto" class="footer-link">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="terminos.html" class="footer-link" target="_blank">Términos y Condiciones</a></li>
+                            <li><a href="privacidad.html" class="footer-link" target="_blank">Política de Privacidad</a></li>
+                            <li><a href="cookies.html" class="footer-link" target="_blank">Política de Cookies</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="footer-buttons">
-                    <a href="https://t.me/SPMarketing_KR" class="btn btn-telegram" target="_blank"><i class="fab fa-telegram"></i> Contáctanos en Telegram</a>
-                </div>
+                
                 <div class="copyright">
                     <p>&copy; <span id="current-year"></span> SPMarketing - Agency - Todos los derechos reservados</p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Banner de Cookies -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestra <a href="cookies.html" target="_blank">política de cookies</a>.</p>
+            <div class="cookie-buttons">
+                <button id="accept-cookies" class="cookie-btn accept">Aceptar</button>
+                <button id="reject-cookies" class="cookie-btn reject">Rechazar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flecha volver arriba -->
+    <a href="#" id="back-to-top" class="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -441,5 +511,36 @@
     <script src="js/countdown.js"></script>
     <script src="js/accordion.js"></script>
     <script src="js/testimonial-slider.js"></script>
+    <script src="analytics/analytics.js"></script>
+    <script>
+        // Script para el banner de cookies
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('accept-cookies');
+            const rejectBtn = document.getElementById('reject-cookies');
+            
+            // Comprobar si ya se ha tomado una decisión sobre las cookies
+            const cookieConsent = localStorage.getItem('cookieConsent');
+            
+            if (!cookieConsent) {
+                // Mostrar el banner si no hay consentimiento previo
+                cookieBanner.style.display = 'block';
+            }
+            
+            // Manejar clic en aceptar
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieBanner.style.display = 'none';
+                // Aquí se podrían activar cookies de análisis, etc.
+            });
+            
+            // Manejar clic en rechazar
+            rejectBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieBanner.style.display = 'none';
+                // Aquí se desactivarían cookies no esenciales
+            });
+        });
+    </script>
 </body>
 </html>

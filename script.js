@@ -19,6 +19,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const headerCountdown = document.getElementById('header-countdown');
     const footerCountdown = document.getElementById('footer-countdown');
     const currentYearSpan = document.getElementById('current-year');
+    const navbar = document.querySelector('.navbar');
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navbarLinks = document.querySelector('.navbar-links');
+    
+    // Funcionalidad de menú toggle para móviles
+    if (navbarToggle && navbarLinks) {
+        navbarToggle.addEventListener('click', function() {
+            navbarLinks.classList.toggle('active');
+            const isOpen = navbarLinks.classList.contains('active');
+            navbarToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+    }
+    
+    // Cambio de estilo del navbar al hacer scroll
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
     
     // Variables para el contador
     let countdownTime;
@@ -225,4 +246,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // La funcionalidad del slider de testimonios se ha movido a js/testimonial-slider.js
     // para mejorar la organización del código y evitar conflictos
+
+    // Flecha volver arriba
+    const backToTop = document.querySelector('.back-to-top');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('active');
+        } else {
+            backToTop.classList.remove('active');
+        }
+    });
+    
+    backToTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        const header = document.querySelector('.header');
+        header.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
 });
