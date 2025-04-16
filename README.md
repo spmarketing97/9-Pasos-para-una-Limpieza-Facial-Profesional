@@ -133,4 +133,83 @@ Actualiza las URL en los botones de call-to-action y el enlace de Telegram segú
 ## Soporte y Contacto
 
 Para soporte técnico sobre esta landing page, contacta a través de:
-- Telegram: [@SPMarketing_KR](https://t.me/SPMarketing_KR) 
+- Telegram: [@SPMarketing_KR](https://t.me/SPMarketing_KR)
+
+# Bot de Telegram para Limpieza Facial Profesional
+
+Este bot de Telegram está diseñado para funcionar como un asistente de ventas virtual para el curso "9 Pasos para una Limpieza Facial Profesional". El bot proporciona información sobre el curso, muestra testimonios, precios, beneficios y guía a los usuarios hacia la compra.
+
+## Características
+
+- 🤖 Chatbot interactivo con menús y botones
+- 🔒 Manejo seguro del token de API (usando variables de entorno)
+- 📊 Flujo de conversación tipo embudo de ventas
+- 🔍 Responde a palabras clave en los mensajes del usuario
+- 📱 Llamadas a la acción (CTAs) claras para guiar al usuario
+
+## Requisitos
+
+- Python 3.8 o superior
+- Las bibliotecas listadas en `requirements.txt`
+- Una cuenta de Telegram
+- Un bot creado con BotFather (@BotFather en Telegram)
+
+## Configuración
+
+1. **Instala las dependencias:**
+
+```bash
+pip install -r requirements.txt
+```
+
+2. **Configura las variables de entorno:**
+
+Crea un archivo `.env` en el directorio raíz del proyecto con el siguiente contenido:
+
+```
+BOT_TOKEN=tu_token_aquí
+```
+
+Reemplaza `tu_token_aquí` con el token proporcionado por BotFather.
+
+3. **Ejecuta el bot:**
+
+```bash
+python telegram_bot.py
+```
+
+## Seguridad
+
+⚠️ **IMPORTANTE**: 
+- Nunca incluyas el token de API directamente en el código fuente.
+- No compartas el archivo `.env` en repositorios públicos.
+- El bot implementa una capa de protección adicional para evitar que el token sea visible en el código o accesible para usuarios maliciosos.
+
+## Personalización
+
+Puedes personalizar el bot modificando los siguientes elementos:
+
+- Textos y mensajes en las funciones de respuesta
+- Estructura del menú y opciones
+- Palabras clave para las respuestas automáticas
+- Información extraída de la página web
+
+## Recomendaciones de Uso
+
+- Configura mensajes de bienvenida atractivos
+- Mantén los textos concisos y directos
+- Usa emojis para hacer la interacción más amigable
+- Asegúrate de que cada interacción tenga una clara llamada a la acción
+
+## Mantenimiento
+
+Para mantener el bot funcionando correctamente:
+
+1. Revisa periódicamente los logs para detectar errores
+2. Actualiza la información de precios, testimonios, etc.
+3. Asegúrate de que los enlaces de compra estén activos
+4. Mantén actualizadas las dependencias de Python
+
+---
+
+Creado por SPMarketing – ImpactoDigital © 2023 

@@ -1,9 +1,12 @@
-// Script para asegurar que el video se reproduzca automáticamente
+// Script para asegurar que el video se reproduzca automáticamente una sola vez
 document.addEventListener('DOMContentLoaded', function() {
     const video = document.getElementById('banner-video');
     if (video) {
         // Asegurarse de que el video esté silenciado inicialmente para permitir autoplay
         video.muted = true;
+        
+        // Asegurarse de que el video no se reproduzca en bucle
+        video.loop = false;
         
         // Intentar reproducir el video automáticamente
         video.play().catch(function(error) {

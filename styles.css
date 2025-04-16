@@ -845,7 +845,7 @@ section {
 
 /* Sección de Testimonios */
 .testimonials {
-    background-color: #f9f9f9;
+    background-color: #f8f9fa;
     padding: 80px 0;
 }
 
@@ -857,30 +857,41 @@ section {
 
 .testimonial-slider {
     position: relative;
-    max-width: 900px;
-    margin: 0 auto;
+    width: 100%;
+    height: 400px; /* Altura fija para evitar saltos */
+    margin-bottom: 30px;
     overflow: hidden;
 }
 
 .testimonial-slide {
-    display: none;
-    animation: fadeIn 0.5s ease forwards;
+    position: absolute !important; /* !important para evitar conflictos con los estilos inline */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease;
+    will-change: opacity, visibility; /* Mejora el rendimiento de las animaciones */
+    z-index: 1;
 }
 
 .testimonial-slide.active {
-    display: block;
     opacity: 1;
     visibility: visible;
+    z-index: 2;
 }
 
 .testimonial-content {
+    display: flex;
     background-color: white;
     border-radius: var(--border-radius);
     padding: 30px;
     box-shadow: var(--box-shadow);
-    display: flex;
     align-items: center;
     gap: 30px;
+    height: 100%;
+    border-left: 5px solid var(--primary-color);
 }
 
 .testimonial-image {
@@ -902,7 +913,7 @@ section {
 .quote i {
     color: var(--primary-color);
     font-size: 1.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .quote p {
@@ -923,31 +934,30 @@ section {
 .slider-controls {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
     gap: 15px;
+    margin-top: 20px;
 }
 
-.slider-controls button {
-    background-color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
+.prev-button, .next-button {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    background-color: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.slider-controls button:hover {
+.prev-button:hover, .next-button:hover {
     background-color: var(--primary-color);
     color: white;
-}
-
-.slider-controls button i {
-    font-size: 1rem;
+    transform: translateY(-3px);
 }
 
 /* Countdown Sticky */
@@ -1311,8 +1321,46 @@ section {
     border-left: 5px solid var(--primary-color);
 }
 
+.testimonial-image {
+    flex: 0 0 100px;
+}
+
+.testimonial-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+}
+
+.quote {
+    flex: 1;
+    padding: 30px;
+}
+
+.quote i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.quote p {
+    margin-bottom: 15px;
+}
+
+.quote h4 {
+    margin-bottom: 5px;
+}
+
+.quote span {
+    color: var(--primary-color);
+}
+
 .slider-controls {
-    display: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 /* Acerca de la productora */
@@ -1558,5 +1606,351 @@ section {
     .cookie-buttons {
         margin-top: 15px;
         justify-content: center;
+    }
+}
+
+/* Estilos para el chat bot flotante */
+.chat-bot-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    font-size: 18px;
+}
+
+.chat-bot-icon:hover {
+    transform: scale(1.05);
+    background-color: #78b022;
+}
+
+/* Popup del bot */
+.chat-bot-popup {
+    position: fixed;
+    bottom: 85px;
+    right: 30px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 12px 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+    width: 200px;
+    font-size: 13px;
+    z-index: 999;
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.chat-bot-popup.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.chat-bot-popup::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid white;
+}
+
+.chat-bot-popup p {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.chat-container {
+    position: fixed;
+    bottom: 85px;
+    right: 30px;
+    width: 290px;
+    height: 370px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 999;
+    border: 1px solid #eee;
+}
+
+.chat-container.active {
+    display: flex;
+}
+
+.chat-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.close-chat {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.close-chat:hover {
+    opacity: 1;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #fafafa;
+}
+
+.message {
+    padding: 8px 10px;
+    border-radius: 8px;
+    max-width: 85%;
+    line-height: 1.4;
+}
+
+.bot-message {
+    background-color: #f0f0f0;
+    align-self: flex-start;
+}
+
+.user-message {
+    background-color: var(--primary-color);
+    color: white;
+    align-self: flex-end;
+}
+
+.message p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.chat-options {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-top: 1px solid #eee;
+    background-color: white;
+}
+
+.option-button {
+    padding: 7px 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    font-size: 12px;
+}
+
+.option-button:hover {
+    background-color: #ebebeb;
+}
+
+/* Mejoras de responsividad general */
+@media (max-width: 1200px) {
+    .container {
+        width: 95%;
+        padding: 0 15px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .chat-container {
+        width: 280px;
+        height: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-content h1 {
+        font-size: 3rem;
+    }
+    
+    .benefit-card {
+        width: 200px;
+    }
+    
+    .chat-container {
+        width: 270px;
+        height: 340px;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 50px 0;
+    }
+    
+    .header-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .header {
+        height: 90vh;
+    }
+    
+    .benefits-grid {
+        gap: 15px;
+    }
+    
+    .benefit-card {
+        width: calc(50% - 15px);
+        padding: 20px 15px;
+    }
+    
+    .testimonial-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .testimonial-image {
+        margin-bottom: 15px;
+    }
+    
+    .quote {
+        padding: 15px;
+    }
+    
+    .footer-nav {
+        gap: 30px;
+    }
+    
+    .chat-container {
+        width: 260px;
+        height: 330px;
+        bottom: 75px;
+        right: 15px;
+    }
+    
+    .chat-bot-popup {
+        bottom: 80px;
+        right: 15px;
+        width: 180px;
+        font-size: 12px;
+    }
+    
+    .chat-bot-icon {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 15px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    section {
+        padding: 40px 0;
+    }
+    
+    .header-content h1 {
+        font-size: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .benefit-card {
+        width: 100%;
+    }
+    
+    .chat-container {
+        width: 240px;
+        height: 320px;
+        bottom: 65px;
+        right: 10px;
+    }
+    
+    .chat-bot-popup {
+        bottom: 70px;
+        right: 10px;
+        width: 160px;
+        padding: 8px 10px;
+    }
+    
+    .chat-bot-icon {
+        width: 38px;
+        height: 38px;
+        bottom: 15px;
+        right: 10px;
+        font-size: 15px;
+    }
+    
+    .chat-header {
+        padding: 8px;
+    }
+    
+    .chat-messages {
+        padding: 8px;
+    }
+    
+    .chat-options {
+        padding: 6px;
+    }
+    
+    .option-button {
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+    
+    .message p {
+        font-size: 11px;
+    }
+}
+
+/* Optimizaciones específicas para dispositivos muy pequeños */
+@media (max-width: 320px) {
+    .chat-container {
+        width: 220px;
+        height: 300px;
+    }
+    
+    .chat-bot-popup {
+        width: 150px;
+    }
+    
+    .chat-bot-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
     }
 }
