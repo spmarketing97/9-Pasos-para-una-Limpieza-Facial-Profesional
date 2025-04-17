@@ -135,6 +135,61 @@ Actualiza las URL en los botones de call-to-action y el enlace de Telegram segú
 Para soporte técnico sobre esta landing page, contacta a través de:
 - Telegram: [@SPMarketing_KR](https://t.me/SPMarketing_KR)
 
+# Configuración de Seguridad
+
+## Tokens y Credenciales Sensibles
+
+Este proyecto utiliza tokens y credenciales que NO deben subirse a GitHub. Sigue estos pasos para configurar correctamente:
+
+### 1. Configuración del Bot de Telegram
+
+En lugar de tener el token directamente en el código, utiliza el archivo `.env`:
+
+1. Ejecuta el script de configuración:
+   - En Windows: `chatbot/setup_bot.bat`
+   - En Linux/Mac: `bash chatbot/setup_bot.sh`
+
+2. Durante la ejecución, se te pedirá que ingreses:
+   - El token de tu bot de Telegram (obtenido de @BotFather)
+   - La contraseña de aplicación para el correo (si vas a usar el informe semanal)
+
+3. El script creará el archivo `.env` con tus credenciales de forma segura.
+
+### 2. Configuración del Informe Semanal
+
+El archivo `informe_semanal.py` necesita una contraseña de aplicación para enviar correos:
+
+1. Genera una contraseña de aplicación en tu cuenta de Google o el proveedor que uses
+2. Durante la ejecución del script de configuración, proporciona esta contraseña
+3. La contraseña se almacenará en el archivo `.env`
+
+## Archivos Excluidos de GitHub
+
+Los siguientes archivos contienen información sensible y NO deben subirse a GitHub:
+
+- `.env` y cualquier archivo `.env` en subcarpetas
+- `informe_semanal.py` (contiene configuración de correo)
+- Archivos de registro (*.log)
+- Archivos en las carpetas `/analytics/` y `/reports/`
+
+Estos archivos ya están incluidos en `.gitignore` para evitar que se suban accidentalmente.
+
+## Preparando el Proyecto para GitHub
+
+Cuando quieras subir el proyecto a GitHub, asegúrate de:
+
+1. **No modificar el archivo .gitignore** que ya está configurado para excluir archivos sensibles
+2. **No forzar la inclusión** (`git add -f`) de archivos excluidos en .gitignore
+3. **Verificar los archivos** que se van a subir antes de hacer commit con `git status`
+
+## Archivos que SÍ debes subir a GitHub
+
+- Todos los archivos HTML, CSS y JavaScript (excepto los que contienen credenciales)
+- Imágenes y recursos visuales
+- Archivos de configuración como `requirements.txt`
+- El README.md con instrucciones
+- Scripts de configuración (ya modificados para no contener tokens)
+
 # Bot de Telegram para Limpieza Facial Profesional
 
 Este bot de Telegram está diseñado para funcionar como un asistente de ventas virtual para el curso "9 Pasos para una Limpieza Facial Profesional". El bot proporciona información sobre el curso, muestra testimonios, precios, beneficios y guía a los usuarios hacia la compra.

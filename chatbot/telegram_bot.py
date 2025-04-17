@@ -23,16 +23,12 @@ START, MENU, INFO, BENEFICIOS, TESTIMONIOS, PRECIO, CONTACT = range(7)
 # Crea un archivo .env con: BOT_TOKEN=tu_token_aquí
 load_dotenv()
 
-# Si el archivo .env no existe, usa la variable de entorno o el valor proporcionado como último recurso
-# IMPORTANTE: En producción, siempre usa variables de entorno o archivos .env
+# Obtener el token de bot desde variables de entorno
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 if not BOT_TOKEN:
-    # Solo para desarrollo, nunca hagas esto en producción
-    with open(".env", "w") as f:
-        f.write(f'BOT_TOKEN=7991530365:AAGXp4FuM0xMNLIQYil7ZgTKAcSf_Cg9evI')
-    load_dotenv(override=True)
-    BOT_TOKEN = os.getenv("BOT_TOKEN")
+    logger.error("No se encontró el token del bot. Por favor, configura la variable de entorno BOT_TOKEN o crea un archivo .env")
+    exit(1)
 
 # Clase para extraer y almacenar la información de la página web
 class WebsiteInfo:

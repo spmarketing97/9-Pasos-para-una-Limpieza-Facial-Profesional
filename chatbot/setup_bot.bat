@@ -44,8 +44,17 @@ if exist .env (
     echo [OK] Archivo .env encontrado
 ) else (
     echo Creando archivo .env...
-    echo BOT_TOKEN=7991530365:AAGXp4FuM0xMNLIQYil7ZgTKAcSf_Cg9evI > .env
+    echo Por favor, ingresa el token de tu bot de Telegram:
+    set /p BOT_TOKEN="> "
+    echo BOT_TOKEN=%BOT_TOKEN% > .env
     echo [OK] Archivo .env creado con el token del bot
+)
+
+REM Preguntar por la contraseña de aplicación para el correo
+echo Por favor, ingresa la contraseña de aplicación para el correo (o deja en blanco si no usas informe_semanal.py):
+set /p EMAIL_APP_PASSWORD="> "
+if not "%EMAIL_APP_PASSWORD%"=="" (
+    echo EMAIL_APP_PASSWORD=%EMAIL_APP_PASSWORD% >> .env
 )
 
 echo.
@@ -55,7 +64,7 @@ echo ================================================================
 echo 1. Registra tu bot con BotFather en Telegram:
 echo    - Abre Telegram y busca @BotFather
 echo    - Escribe /newbot y sigue las instrucciones
-echo    - Cuando obtengas un token, ya lo tienes configurado en .env
+echo    - Cuando obtengas un token, cópialo y ejecútame de nuevo
 echo.
 echo 2. Configura tu bot con estos comandos en BotFather:
 echo    - /setcommands

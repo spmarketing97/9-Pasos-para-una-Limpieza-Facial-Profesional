@@ -44,8 +44,17 @@ if [ -f .env ]; then
     echo -e "${GREEN}✅ Archivo .env encontrado${NC}"
 else
     echo -e "${YELLOW}Creando archivo .env...${NC}"
-    echo "BOT_TOKEN=7991530365:AAGXp4FuM0xMNLIQYil7ZgTKAcSf_Cg9evI" > .env
+    echo -e "${YELLOW}Por favor, ingresa el token de tu bot de Telegram:${NC}"
+    read -p "> " BOT_TOKEN
+    echo "BOT_TOKEN=$BOT_TOKEN" > .env
     echo -e "${GREEN}✅ Archivo .env creado con el token del bot${NC}"
+    
+    # Solicitar contraseña de aplicación para el correo
+    echo -e "${YELLOW}Por favor, ingresa la contraseña de aplicación para el correo (o deja en blanco si no usas informe_semanal.py):${NC}"
+    read -p "> " EMAIL_APP_PASSWORD
+    if [ ! -z "$EMAIL_APP_PASSWORD" ]; then
+        echo "EMAIL_APP_PASSWORD=$EMAIL_APP_PASSWORD" >> .env
+    fi
 fi
 
 # Verificar si ngrok está instalado para pruebas locales (opcional)
@@ -62,7 +71,7 @@ echo -e "${BLUE}================================================================
 echo -e "${YELLOW}1. Registra tu bot con BotFather en Telegram:${NC}"
 echo -e "   - Abre Telegram y busca @BotFather"
 echo -e "   - Escribe /newbot y sigue las instrucciones"
-echo -e "   - Cuando obtengas un token, ya lo tienes configurado en .env"
+echo -e "   - Cuando obtengas un token, cópialo y ejecútame de nuevo"
 echo -e ""
 echo -e "${YELLOW}2. Configura tu bot con estos comandos en BotFather:${NC}"
 echo -e "   - /setcommands"
