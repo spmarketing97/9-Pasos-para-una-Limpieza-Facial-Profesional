@@ -341,10 +341,6 @@
                     </div>
                 </div>
             </div>
-            <div class="slider-controls">
-                <button class="prev-button" aria-label="Testimonio anterior"><i class="fas fa-chevron-left"></i></button>
-                <button class="next-button" aria-label="Testimonio siguiente"><i class="fas fa-chevron-right"></i></button>
-            </div>
         </div>
     </section>
 
@@ -493,48 +489,19 @@
     <!-- Precio y CTA -->
     <section id="precio" class="price-section">
         <div class="container">
+            <h2 data-aos="fade-up">INVERSIÓN</h2>
             <div class="price-container" data-aos="fade-up">
-                <!-- Segunda imagen por encima del precio -->
-                <img src="img/banner2.jpg" alt="Limpieza facial profesional" class="price-image">
                 <div class="price-details">
-                    <h2>INVIERTE EN TU FUTURO PROFESIONAL</h2>
+                    <h3>Curso Completo de 9 Pasos para una Limpieza Facial Profesional</h3>
                     <div class="price">
-                        <span class="currency">$</span>
-                        <span class="amount"><s>179</s></span>
-                        <span class="cents"><s>.99</s></span>
-                        <span class="currency-code">USD</span>
-                        <span class="offer-label">Oferta Limitada</span>
+                        <div class="offer-label">40% OFF</div>
+                        <span class="currency">$</span>97<span class="currency-code">USD</span> <s>$197</s>
                     </div>
-                    <div class="price current-price">
-                        <span class="currency">$</span>
-                        <span class="amount">94</span>
-                        <span class="cents"></span>
-                        <span class="currency-code">USD + IVA</span>
-                    </div>
+                    
                     <div class="guarantee-badge">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>7 días de garantía - 100% devolución del dinero sin preguntas</span>
-                    </div>
-                    <div class="price-features">
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Acceso de por vida al contenido</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Certificado avalado</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Material de estudio descargable</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Bonos exclusivos</span>
-                        </div>
+                        <i class="fas fa-shield-alt"></i> 30 días de garantía de satisfacción
                     </div>
                     <a href="https://hotm.art/PasosparaunaLimpiezaFacialProfesional-CheckOut" class="btn btn-primary" target="_blank">INSCRIBIRME AHORA</a>
-                    <!-- Removing the extra button below that was added by mistake -->
                 </div>
             </div>
         </div>
@@ -649,35 +616,81 @@
     <script src="js/testimonial-slider.js"></script>
     <script src="js/app.js"></script>
     <script src="chatbot/chatbot.js"></script>
+    
+    <!-- Script para forzar la visualización de testimonios -->
     <script>
-        // Script para el banner de cookies
-        document.addEventListener('DOMContentLoaded', function() {
-            const cookieBanner = document.getElementById('cookie-banner');
-            const acceptBtn = document.getElementById('accept-cookies');
-            const rejectBtn = document.getElementById('reject-cookies');
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            // Forzar visibilidad de la sección de testimonios
+            var testimonios = document.getElementById('testimonios');
+            var slider = document.querySelector('.testimonial-slider');
+            var slides = document.querySelectorAll('.testimonial-slide');
             
-            // Comprobar si ya se ha tomado una decisión sobre las cookies
-            const cookieConsent = localStorage.getItem('cookieConsent');
-            
-            if (!cookieConsent) {
-                // Mostrar el banner si no hay consentimiento previo
-                cookieBanner.style.display = 'block';
+            if (testimonios && slider && slides.length > 0) {
+                testimonios.style.display = 'block';
+                testimonios.style.visibility = 'visible';
+                testimonios.style.opacity = '1';
+                
+                slider.style.display = 'block';
+                slider.style.visibility = 'visible';
+                slider.style.opacity = '1';
+                slider.style.overflow = 'visible';
+                slider.style.position = 'relative';
+                slider.style.zIndex = '5';
+                
+                // Asegurarse de que al menos el primer testimonio sea visible
+                if (slides[0]) {
+                    slides[0].style.display = 'block';
+                    slides[0].style.visibility = 'visible';
+                    slides[0].style.opacity = '1';
+                    slides[0].style.zIndex = '6';
+                    slides[0].classList.add('active');
+                }
+                
+                // Ocultar los controles de navegación
+                var controls = document.querySelector('.slider-controls');
+                if (controls) {
+                    controls.style.display = 'none';
+                    controls.style.visibility = 'hidden';
+                }
+                
+                console.log("Script de corrección de testimonios ejecutado - modo automático");
+            } else {
+                console.error("No se pudieron encontrar los elementos de testimonios");
             }
-            
-            // Manejar clic en aceptar
-            acceptBtn.addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'accepted');
-                cookieBanner.style.display = 'none';
-                // Aquí se podrían activar cookies de análisis, etc.
-            });
-            
-            // Manejar clic en rechazar
-            rejectBtn.addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'rejected');
-                cookieBanner.style.display = 'none';
-                // Aquí se desactivarían cookies no esenciales
-            });
+        }, 1000);
+    });
+    </script>
+    
+    <!-- Script para el banner de cookies -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const rejectBtn = document.getElementById('reject-cookies');
+        
+        // Comprobar si ya se ha tomado una decisión sobre las cookies
+        const cookieConsent = localStorage.getItem('cookieConsent');
+        
+        if (!cookieConsent) {
+            // Mostrar el banner si no hay consentimiento previo
+            cookieBanner.style.display = 'block';
+        }
+        
+        // Manejar clic en aceptar
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.style.display = 'none';
+            // Aquí se podrían activar cookies de análisis, etc.
         });
+        
+        // Manejar clic en rechazar
+        rejectBtn.addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            cookieBanner.style.display = 'none';
+            // Aquí se desactivarían cookies no esenciales
+        });
+    });
     </script>
 </body>
 </html>

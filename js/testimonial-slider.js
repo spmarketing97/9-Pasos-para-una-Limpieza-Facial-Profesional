@@ -1,27 +1,48 @@
 /**
  * Testimonial Slider - Carrusel automático cada 10 segundos con efecto de desaparición
+ * Versión mejorada para avance automático sin controles manuales
  */
 document.addEventListener('DOMContentLoaded', function() {
     // Seleccionar elementos del DOM
     const slides = document.querySelectorAll('.testimonial-slide');
+    const sliderContainer = document.querySelector('.testimonial-slider');
     let currentSlide = 0;
     let autoplayInterval;
     let isTransitioning = false;
     
     console.log("Testimonial slider iniciado - " + slides.length + " testimonios encontrados");
 
+    // Verificación de existencia de testimonios
+    if (slides.length === 0) {
+        console.error("ALERTA: No se encontraron testimonios");
+        return;
+    }
+    
+    // Asegurarse que el contenedor sea visible
+    if (sliderContainer) {
+        sliderContainer.style.display = 'block';
+        sliderContainer.style.position = 'relative';
+        sliderContainer.style.zIndex = '2';
+        sliderContainer.style.overflow = 'visible';
+    }
+
     // Configuración inicial del slider
     function initSlider() {
-        if (slides.length === 0) {
-            console.log("No se encontraron testimonios");
-            return;
-        }
+        console.log("Inicializando slider de testimonios - modo automático");
         
-        console.log("Inicializando slider de testimonios");
+        // Aplicar estilos al contenedor
+        document.querySelector('#testimonios').style.zIndex = '1';
+        
+        // Ocultar los controles manuales ya que no son necesarios
+        const controls = document.querySelector('.slider-controls');
+        if (controls) {
+            controls.style.display = 'none';
+        }
         
         // Configurar todos los slides inicialmente
         slides.forEach((slide, index) => {
             // Establecer estilos básicos
+            slide.style.display = 'block';
             slide.style.position = 'absolute';
             slide.style.top = '0';
             slide.style.left = '0';
@@ -38,38 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 slide.style.visibility = 'visible';
                 slide.style.zIndex = '2';
                 slide.classList.add('active');
+                console.log("Slide activo: ", index);
             } else {
                 slide.classList.remove('active');
             }
         });
-        
-        // Configurar botones de navegación manual
-        const prevButton = document.querySelector('.prev-button');
-        const nextButton = document.querySelector('.next-button');
-        
-        if (prevButton) {
-            prevButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (!isTransitioning) {
-                    console.log("Botón anterior pulsado");
-                    stopAutoplay();
-                    showPrevSlide();
-                    startAutoplay();
-                }
-            });
-        }
-        
-        if (nextButton) {
-            nextButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (!isTransitioning) {
-                    console.log("Botón siguiente pulsado");
-                    stopAutoplay();
-                    showNextSlide();
-                    startAutoplay();
-                }
-            });
-        }
     }
 
     // Mostrar un slide específico con efecto de desaparecer
@@ -112,13 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const nextIndex = (currentSlide + 1) % slides.length;
         showSlide(nextIndex);
     }
-    
-    // Volver al slide anterior
-    function showPrevSlide() {
-        if (isTransitioning) return;
-        const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
-        showSlide(prevIndex);
-    }
 
     // Iniciar el autoplay a 10 segundos
     function startAutoplay() {
@@ -131,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log("Cambiando testimonio automáticamente");
                 showNextSlide();
             }
-        }, 10000);
+        }, 10000); // Exactamente 10 segundos por testimonio
     }
 
     // Detener el autoplay
@@ -146,15 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar y comenzar
     initSlider();
     startAutoplay();
-
-    // Eventos para pausar/reanudar al interactuar
-    const sliderContainer = document.querySelector('.testimonial-slider');
-    if (sliderContainer) {
-        sliderContainer.addEventListener('mouseenter', stopAutoplay);
-        sliderContainer.addEventListener('mouseleave', startAutoplay);
-        sliderContainer.addEventListener('touchstart', stopAutoplay, {passive: true});
-        sliderContainer.addEventListener('touchend', startAutoplay, {passive: true});
-    }
     
     // Reiniciar autoplay cuando la página vuelve a obtener foco
     document.addEventListener('visibilitychange', function() {
@@ -170,6 +148,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Forzar el funcionamiento incluso con cambios en la página
     window.addEventListener('load', function() {
+        console.log("Página cargada - reiniciando slider");
+        // Forzar a mostrar el slider en caso de problemas
+        document.querySelector('.testimonial-slider').style.display = 'block';
+        document.querySelector('.testimonial-slider').style.overflow = 'visible';
+        
+        // Ocultar los controles
+        const controls = document.querySelector('.slider-controls');
+        if (controls) {
+            controls.style.display = 'none';
+        }
+        
+        // Forzar a mostrar al menos un testimonio
+        if (slides[0]) {
+            slides[0].style.opacity = '1';
+            slides[0].style.visibility = 'visible';
+            slides[0].style.zIndex = '2';
+            slides[0].classList.add('active');
+        }
+        
         stopAutoplay();
         setTimeout(startAutoplay, 1000);
     });
@@ -182,15 +179,41 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('blur', stopAutoplay);
     
     window.addEventListener('resize', function() {
+        // Ocultar controles al redimensionar
+        const controls = document.querySelector('.slider-controls');
+        if (controls) {
+            controls.style.display = 'none';
+        }
+        
         stopAutoplay();
         setTimeout(startAutoplay, 1000);
     });
     
-    // Verificar cada minuto si el autoplay sigue funcionando (como respaldo)
+    // Verificar cada 5 segundos el estado del slider
     setInterval(function() {
         if (!autoplayInterval) {
             console.log("Restaurando autoplay (verificación de seguridad)");
             startAutoplay();
         }
-    }, 60000);
+        
+        // Verificar si hay testimonios visibles, si no, mostrar el primero
+        let visibleSlide = document.querySelector('.testimonial-slide.active');
+        if (!visibleSlide || getComputedStyle(visibleSlide).opacity === '0') {
+            console.log("Ningún testimonio visible - mostrando el primero");
+            slides.forEach((slide, index) => {
+                if (index === 0) {
+                    slide.style.opacity = '1';
+                    slide.style.visibility = 'visible';
+                    slide.style.zIndex = '2';
+                    slide.classList.add('active');
+                    currentSlide = 0;
+                } else {
+                    slide.style.opacity = '0';
+                    slide.style.visibility = 'hidden';
+                    slide.style.zIndex = '1';
+                    slide.classList.remove('active');
+                }
+            });
+        }
+    }, 5000);
 });
