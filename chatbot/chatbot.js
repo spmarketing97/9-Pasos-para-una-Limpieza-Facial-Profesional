@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
         descripcion: document.querySelector('meta[name="description"]').getAttribute('content'),
         linkCompra: "https://hotm.art/PasosparaunaLimpiezaFacialProfesional-CheckOut",
         precio: {
-            regular: "199.99 USD",
-            oferta: "113.74 USD"
+            regular: "179.99 USD",
+            oferta: "94 USD + IVA"
         }
     };
 
@@ -250,6 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
         message += `(Precio normal: ${siteInfo.precio.regular})\n\n`;
         message += `✅ Acceso de por vida\n`;
         message += `✅ Certificado avalado\n`;
+        message += `✅ 7 días de garantía - 100% devolución del dinero sin preguntas\n`;
         
         addMessage(message);
         

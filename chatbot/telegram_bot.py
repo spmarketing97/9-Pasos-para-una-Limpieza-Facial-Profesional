@@ -75,8 +75,8 @@ class WebsiteInfo:
             ]
             
             # Precios
-            self.info["precio_regular"] = "$199.99 USD"
-            self.info["precio_oferta"] = "$113.74 USD"
+            self.info["precio_regular"] = "$179.99 USD"
+            self.info["precio_oferta"] = "$94 USD + IVA"
             
             # Características incluidas
             self.info["caracteristicas"] = [
@@ -249,6 +249,7 @@ async def precio(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         f"Precio regular: ~{website.info['precio_regular']}~\n"
         f"*OFERTA ESPECIAL: {website.info['precio_oferta']}*\n\n"
         f"*Lo que incluye:*\n{caracteristicas_text}\n\n"
+        f"*🛡️ 7 días de garantía - 100% devolución del dinero sin preguntas*\n\n"
         f"*¡Oferta por tiempo limitado!*",
         reply_markup=reply_markup,
         parse_mode="Markdown"
