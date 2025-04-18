@@ -777,11 +777,22 @@ section {
     }
     
     .price {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
     
     .currency, .cents {
         font-size: 2rem;
+    }
+    
+    .current-price {
+        font-size: 3.8rem;
+        margin: 10px 0 20px;
+    }
+    
+    .offer-label {
+        font-size: 0.9rem;
+        top: -12px;
+        right: -5px;
     }
 }
 
@@ -808,6 +819,41 @@ section {
     
     .benefit-card {
         padding: 30px 20px;
+    }
+    
+    .price {
+        font-size: 3rem;
+        margin: 15px 0 5px;
+    }
+    
+    .current-price {
+        font-size: 3.5rem;
+        margin: 5px 0 15px;
+    }
+    
+    .currency {
+        font-size: 1.8rem;
+        top: -15px;
+    }
+    
+    .cents {
+        font-size: 1.8rem;
+    }
+    
+    .currency-code {
+        font-size: 1.2rem;
+    }
+    
+    .offer-label {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+        top: -10px;
+        right: -5px;
+    }
+    
+    .guarantee-badge {
+        font-size: 0.9rem;
+        padding: 8px 12px;
     }
 }
 

@@ -30,6 +30,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const isOpen = navbarLinks.classList.contains('active');
             navbarToggle.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
+        
+        // Cerrar menú cuando se hace clic en cualquier enlace
+        const navLinks = navbarLinks.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Solo cerrar si el menú está abierto (clase active presente)
+                if (navbarLinks.classList.contains('active')) {
+                    navbarLinks.classList.remove('active');
+                    navbarToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
     }
     
     // Cambio de estilo del navbar al hacer scroll
