@@ -203,6 +203,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Manejo de la sección de preguntas frecuentes (FAQ)
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    if (faqItems.length > 0) {
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
+            if (question) {
+                question.addEventListener('click', () => {
+                    // Comprobar si el elemento actual está activo
+                    const isActive = item.classList.contains('active');
+                    
+                    // Cerrar todas las preguntas abiertas
+                    faqItems.forEach(faqItem => {
+                        faqItem.classList.remove('active');
+                    });
+                    
+                    // Si el elemento no estaba activo, abrirlo
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+        
+        // Activar la primera pregunta por defecto
+        if (faqItems.length > 0) {
+            faqItems[0].classList.add('active');
+        }
+    }
+    
     // Efecto paralaje para el banner
     const banner = document.querySelector('.banner-img');
     if (banner) {

@@ -341,88 +341,148 @@ section {
 /* Diseño acordeón minimalista para módulos */
 .modules-minimalista {
     max-width: 900px;
-    margin: 0 auto;
+    margin: 50px auto;
 }
 
 .modulo-minimalista {
-    background-color: white;
-    border-radius: var(--border-radius);
-    margin-bottom: 20px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     overflow: hidden;
-    transition: all 0.3s ease;
 }
 
 .modulo-minimalista:hover {
-    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .modulo-minimalista h3 {
-    padding: 15px 20px;
-    background-color: var(--secondary-color);
-    color: white;
-    font-size: 1.2rem;
-    margin-bottom: 0;
-    border-left: 5px solid var(--primary-color);
+    margin: 0;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2e4057;
+    background-color: #fff;
     cursor: pointer;
-    position: relative;
+    transition: all 0.3s ease;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    position: relative;
+    padding-right: 40px; /* Espacio para el icono */
 }
 
+/* Pseudoelemento para el icono de flecha */
 .modulo-minimalista h3::after {
-    content: '+';
-    font-size: 1.5rem;
-    font-weight: 300;
+    content: '\f078'; /* Icono de flecha down de FontAwesome */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    font-size: 14px;
+    color: #9be031;
     transition: transform 0.3s ease;
 }
 
+/* Rotar flecha cuando está activo */
 .modulo-minimalista.active h3::after {
-    content: '-';
-    transform: rotate(0deg);
+    transform: rotate(180deg);
 }
 
+/* Contenido del módulo (inicialmente oculto) */
 .modulo-contenido {
     max-height: 0;
     overflow: hidden;
-    background-color: white;
     transition: max-height 0.5s ease;
     padding: 0 20px;
+    opacity: 0;
 }
 
+/* Mostrar contenido cuando está activo */
 .modulo-minimalista.active .modulo-contenido {
-    max-height: 1000px;
+    max-height: 1000px; /* Valor suficientemente grande */
+    opacity: 1;
     padding: 20px;
+    transition: 
+        max-height 0.5s ease-in,
+        opacity 0.3s ease-in,
+        padding 0.3s ease;
 }
 
+/* Estilos de la lista dentro del módulo */
 .modulo-contenido ul {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
 .modulo-contenido li {
     padding: 10px 0;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #eee;
     position: relative;
-    padding-left: 20px;
+    padding-left: 25px;
 }
 
+/* Viñeta personalizada para los elementos de la lista */
 .modulo-contenido li:before {
-    content: '•';
-    color: var(--primary-color);
+    content: "\f00c"; /* Icono de check de FontAwesome */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     position: absolute;
     left: 0;
-    font-size: 1.2rem;
+    color: #9be031;
 }
 
+/* Quitar borde del último elemento */
 .modulo-contenido li:last-child {
     border-bottom: none;
 }
 
-.module-content li:last-child {
-    border-bottom: none;
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .modulo-minimalista h3 {
+        font-size: 16px;
+        padding: 15px;
+        padding-right: 40px; /* Mantener espacio para el icono */
+    }
+    
+    .modulo-contenido li {
+        font-size: 14px;
+        padding-left: 20px;
+    }
+    
+    .modulo-contenido li:before {
+        font-size: 12px;
+    }
+    
+    .modulo-minimalista.active .modulo-contenido {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .modules-minimalista {
+        margin: 30px auto;
+    }
+    
+    .modulo-minimalista {
+        margin-bottom: 10px;
+    }
+    
+    .modulo-minimalista h3 {
+        font-size: 15px;
+        padding: 12px;
+        padding-right: 35px;
+    }
+    
+    .modulo-minimalista h3::after {
+        right: 15px;
+        font-size: 12px;
+    }
+    
+    .modulo-contenido li {
+        padding: 8px 0;
+        padding-left: 18px;
+    }
 }
 
 /* About Producer */
@@ -2019,5 +2079,144 @@ section {
         width: 35px;
         height: 35px;
         font-size: 14px;
+    }
+}
+
+/* Estilos simplificados para la sección de preguntas frecuentes */
+.faq-section {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+}
+
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2e4057;
+    position: relative;
+}
+
+.faq-section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #9be031;
+    margin: 20px auto 30px;
+}
+
+.faq-section > .container > p {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    color: #666;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-color: #fff;
+    border-bottom: 1px solid transparent;
+}
+
+.faq-question:hover {
+    background-color: #f7f7f7;
+}
+
+.faq-question h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #2e4057;
+    font-weight: 600;
+    padding-right: 30px;
+}
+
+.faq-question i {
+    color: #9be031;
+    font-size: 16px;
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Estilos específicos para el elemento activo */
+.faq-item.active .faq-question {
+    border-bottom-color: #eee;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 20px;
+    opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 1000px;
+    opacity: 1;
+    padding: 20px;
+    transition: 
+        max-height 0.5s ease-in,
+        opacity 0.3s ease-in,
+        padding 0.3s ease-in;
+}
+
+.faq-answer p {
+    margin: 0;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 50px 0;
+    }
+    
+    .faq-question h3 {
+        font-size: 16px;
+    }
+    
+    .faq-answer p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .faq-section {
+        padding: 40px 0;
+    }
+    
+    .faq-question {
+        padding: 15px;
+    }
+    
+    .faq-question h3 {
+        font-size: 15px;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 15px;
     }
 }

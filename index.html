@@ -32,6 +32,15 @@
     <link rel="shortcut icon" href="img/favicon_32x32.svg">
     <meta name="msapplication-TileColor" content="#9be031">
     <meta name="theme-color" content="#9be031">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8EXKKBBTM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-V8EXKKBBTM');
+    </script>
 </head>
 <body>
     <!-- Menú de navegación sticky -->
@@ -44,8 +53,9 @@
                     <a href="#beneficios" class="nav-link">Beneficios</a>
                     <a href="#testimonios" class="nav-link">Testimonios</a>
                     <a href="#productora" class="nav-link">Productora</a>
-                    <a href="#precio" class="nav-link">Precio</a>
                     <a href="#certificado" class="nav-link">Certificado</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="#precio" class="nav-link">Precio</a>
                     <a href="#precio" class="btn btn-primary nav-btn">¡Quiero Inscribirme!</a>
                 </div>
                 <div class="navbar-toggle">
@@ -341,6 +351,10 @@
                     </div>
                 </div>
             </div>
+            <div class="slider-controls">
+                <button class="prev-button" aria-label="Testimonio anterior"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-button" aria-label="Testimonio siguiente"><i class="fas fa-chevron-right"></i></button>
+            </div>
         </div>
     </section>
 
@@ -367,8 +381,8 @@
             <div class="modules-minimalista" data-aos="fade-up">
                 <!-- Módulo 1 -->
                 <div class="modulo-minimalista">
-                    <h3>MÓDULO 1 - CREA TU PROPIO NEGOCIO</h3>
-                    <div class="modulo-contenido">
+                    <h3 tabindex="0" role="button" aria-expanded="false" aria-controls="modulo1-contenido">MÓDULO 1 - CREA TU PROPIO NEGOCIO</h3>
+                    <div id="modulo1-contenido" class="modulo-contenido">
                         <ul>
                             <li>Bienvenida.</li>
                             <li>Introducción.</li>
@@ -379,8 +393,8 @@
                 
                 <!-- Módulo 2 -->
                 <div class="modulo-minimalista">
-                    <h3>MÓDULO 2 - PRIMEROS 3 PASOS</h3>
-                    <div class="modulo-contenido">
+                    <h3 tabindex="0" role="button" aria-expanded="false" aria-controls="modulo2-contenido">MÓDULO 2 - PRIMEROS 3 PASOS</h3>
+                    <div id="modulo2-contenido" class="modulo-contenido">
                         <ul>
                             <li>1. Desmaquillaje: Importancia, qué productos usar según el tipo de piel.</li>
                             <li>2. Exfoliación: Importancia y recomendaciones.</li>
@@ -393,8 +407,8 @@
                 
                 <!-- Módulo 3 -->
                 <div class="modulo-minimalista">
-                    <h3>MÓDULO 3 - CUARTO, QUINTO Y SEXTO PASO</h3>
-                    <div class="modulo-contenido">
+                    <h3 tabindex="0" role="button" aria-expanded="false" aria-controls="modulo3-contenido">MÓDULO 3 - CUARTO, QUINTO Y SEXTO PASO</h3>
+                    <div id="modulo3-contenido" class="modulo-contenido">
                         <ul>
                             <li>4. Vapor ozono: Beneficios, precauciones y contraindicaciones.</li>
                             <li>Tipos de vaporizadores y Modo de uso.</li>
@@ -409,8 +423,8 @@
                 
                 <!-- Módulo 4 -->
                 <div class="modulo-minimalista">
-                    <h3>MÓDULO 4 - SÉPTIMO, OCTAVO Y NOVENO PASO</h3>
-                    <div class="modulo-contenido">
+                    <h3 tabindex="0" role="button" aria-expanded="false" aria-controls="modulo4-contenido">MÓDULO 4 - SÉPTIMO, OCTAVO Y NOVENO PASO</h3>
+                    <div id="modulo4-contenido" class="modulo-contenido">
                         <ul>
                             <li>7. Mascarillas: Usos según el tipo de piel.</li>
                             <li>8. Mascarilla Led: Usos según el tipo de piel y Función de cada color (rojo, azul, Amarillo, verde, morado, blanco).</li>
@@ -425,8 +439,8 @@
                 
                 <!-- Módulo 5 -->
                 <div class="modulo-minimalista">
-                    <h3>MÓDULO 5 - CLAVES PARA TENER UN NEGOCIO EXITOSO</h3>
-                    <div class="modulo-contenido">
+                    <h3 tabindex="0" role="button" aria-expanded="false" aria-controls="modulo5-contenido">MÓDULO 5 - CLAVES PARA TENER UN NEGOCIO EXITOSO</h3>
+                    <div id="modulo5-contenido" class="modulo-contenido">
                         <ul>
                             <li>Estructura de costos.</li>
                             <li>Fijación de precios.</li>
@@ -437,8 +451,8 @@
                 
                 <!-- Módulo 6 -->
                 <div class="modulo-minimalista">
-                    <h3>MÓDULO 6 – MATERIAL ADICIONAL (BONOS)</h3>
-                    <div class="modulo-contenido">
+                    <h3 tabindex="0" role="button" aria-expanded="false" aria-controls="modulo6-contenido">MÓDULO 6 – MATERIAL ADICIONAL (BONOS)</h3>
+                    <div id="modulo6-contenido" class="modulo-contenido">
                         <ul>
                             <li>Ebook. Guía de recomendaciones higiénico sanitarias Covid-19 para centros de estética</li>
                             <li>Ebook. Ecoéstetica, belleza consciente</li>
@@ -450,8 +464,8 @@
                 
                 <!-- Módulo 7 -->
                 <div class="modulo-minimalista">
-                    <h3>MÓDULO 7 - VIDEO RESPUESTAS</h3>
-                    <div class="modulo-contenido">
+                    <h3 tabindex="0" role="button" aria-expanded="false" aria-controls="modulo7-contenido">MÓDULO 7 - VIDEO RESPUESTAS</h3>
+                    <div id="modulo7-contenido" class="modulo-contenido">
                         <ul>
                             <li>¿Cuáles son los cuidados fundamentales luego de la limpieza facial profesional?</li>
                             <li>¿Puedo entrenar después de una limpieza Facial profesional?</li>
@@ -464,13 +478,14 @@
                 
                 <!-- Módulo 8 -->
                 <div class="modulo-minimalista">
-                    <h3>MÓDULO 8 - ¿CÓMO OBTENER TU CERTIFICADO?</h3>
-                    <div class="modulo-contenido">
+                    <h3 tabindex="0" role="button" aria-expanded="false" aria-controls="modulo8-contenido">MÓDULO 8 - ¿CÓMO OBTENER TU CERTIFICADO?</h3>
+                    <div id="modulo8-contenido" class="modulo-contenido">
                         <ul>
                             <li>¿Cómo obtener tu certificado?</li>
                         </ul>
                     </div>
                 </div>
+            </div>
         </div>
     </section>
 
@@ -486,22 +501,138 @@
         </div>
     </section>
 
+    <!-- Preguntas Frecuentes -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 data-aos="fade-up">PREGUNTAS FRECUENTES</h2>
+            <p data-aos="fade-up">Resolvemos tus dudas sobre el curso de limpieza facial profesional.</p>
+            
+            <div class="faq-container" data-aos="fade-up">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <div class="faq-question" tabindex="0" role="button" aria-expanded="false" aria-controls="faq-answer-1">
+                        <h3>¿Necesito experiencia previa para tomar este curso?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div id="faq-answer-1" class="faq-answer">
+                        <p>No, el curso está diseñado para todos los niveles. Empezamos desde lo básico y avanzamos paso a paso hasta convertirte en un(a) profesional de la limpieza facial.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question" tabindex="0" role="button" aria-expanded="false" aria-controls="faq-answer-2">
+                        <h3>¿Cuánto tiempo tendré acceso al contenido del curso?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div id="faq-answer-2" class="faq-answer">
+                        <p>Tendrás acceso de por vida al contenido completo del curso, incluyendo todas las actualizaciones futuras sin costo adicional.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question" tabindex="0" role="button" aria-expanded="false" aria-controls="faq-answer-3">
+                        <h3>¿Qué equipos necesito para realizar las prácticas del curso?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div id="faq-answer-3" class="faq-answer">
+                        <p>En el primer módulo detallamos todos los utensilios y equipos indispensables. Muchos de los procedimientos se pueden realizar con equipos básicos, y damos alternativas para diferentes presupuestos.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question" tabindex="0" role="button" aria-expanded="false" aria-controls="faq-answer-4">
+                        <h3>¿El certificado tiene validez internacional?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div id="faq-answer-4" class="faq-answer">
+                        <p>El certificado está avalado por Hotmart y Seminarios Online. Es reconocido en el ámbito profesional de estética y belleza, aunque te recomendamos verificar los requisitos específicos de cada país para el ejercicio profesional.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <div class="faq-question" tabindex="0" role="button" aria-expanded="false" aria-controls="faq-answer-5">
+                        <h3>¿Puedo empezar mi propio negocio después de completar el curso?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div id="faq-answer-5" class="faq-answer">
+                        <p>¡Absolutamente! Uno de los objetivos principales del curso es prepararte para emprender en este sector. Tenemos un módulo completo dedicado a las claves para crear un negocio exitoso, incluyendo estructura de costos y fijación de precios.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 6 -->
+                <div class="faq-item">
+                    <div class="faq-question" tabindex="0" role="button" aria-expanded="false" aria-controls="faq-answer-6">
+                        <h3>¿Cómo funciona la garantía de devolución?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div id="faq-answer-6" class="faq-answer">
+                        <p>Ofrecemos 7 días de garantía. Si no estás satisfecho con el curso por cualquier motivo, puedes solicitar el reembolso completo del 100% de tu inversión sin preguntas ni condiciones.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 7 -->
+                <div class="faq-item">
+                    <div class="faq-question" tabindex="0" role="button" aria-expanded="false" aria-controls="faq-answer-7">
+                        <h3>¿Tendré acceso a soporte durante el curso?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div id="faq-answer-7" class="faq-answer">
+                        <p>Sí, contamos con soporte para resolver tus dudas técnicas sobre la plataforma. Además, tenemos un módulo de video respuestas donde abordamos las preguntas más frecuentes sobre los procedimientos y técnicas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Precio y CTA -->
     <section id="precio" class="price-section">
         <div class="container">
-            <h2 data-aos="fade-up">INVERSIÓN</h2>
             <div class="price-container" data-aos="fade-up">
+                <!-- Segunda imagen por encima del precio -->
+                <img src="img/banner2.jpg" alt="Limpieza facial profesional" class="price-image">
                 <div class="price-details">
-                    <h3>Curso Completo de 9 Pasos para una Limpieza Facial Profesional</h3>
+                    <h2>INVIERTE EN TU FUTURO PROFESIONAL</h2>
                     <div class="price">
-                        <div class="offer-label">40% OFF</div>
-                        <span class="currency">$</span>97<span class="currency-code">USD</span> <s>$197</s>
+                        <span class="currency">$</span>
+                        <span class="amount"><s>179</s></span>
+                        <span class="cents"><s>.99</s></span>
+                        <span class="currency-code">USD</span>
+                        <span class="offer-label">Oferta Limitada</span>
                     </div>
-                    
+                    <div class="price current-price">
+                        <span class="currency">$</span>
+                        <span class="amount">94</span>
+                        <span class="cents"></span>
+                        <span class="currency-code">USD + IVA</span>
+                    </div>
                     <div class="guarantee-badge">
-                        <i class="fas fa-shield-alt"></i> 30 días de garantía de satisfacción
+                        <i class="fas fa-shield-alt"></i>
+                        <span>7 días de garantía - 100% devolución del dinero sin preguntas</span>
+                    </div>
+                    <div class="price-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Acceso de por vida al contenido</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Certificado avalado</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Material de estudio descargable</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Bonos exclusivos</span>
+                        </div>
                     </div>
                     <a href="https://hotm.art/PasosparaunaLimpiezaFacialProfesional-CheckOut" class="btn btn-primary" target="_blank">INSCRIBIRME AHORA</a>
+                    <!-- Removing the extra button below that was added by mistake -->
                 </div>
             </div>
         </div>
@@ -612,85 +743,215 @@
     <script src="script.js"></script>
     <script src="js/video-autoplay.js"></script>
     <script src="js/countdown.js"></script>
-    <script src="js/accordion.js"></script>
+    <!-- Scripts de acordeón desactivados para evitar conflictos con la implementación directa -->
+    <!-- <script src="js/modulos-acordeon.js"></script> -->
+    <!-- <script src="js/accordion.js"></script> -->
     <script src="js/testimonial-slider.js"></script>
     <script src="js/app.js"></script>
     <script src="chatbot/chatbot.js"></script>
-    
-    <!-- Script para forzar la visualización de testimonios -->
     <script>
-    window.addEventListener('load', function() {
-        setTimeout(function() {
-            // Forzar visibilidad de la sección de testimonios
-            var testimonios = document.getElementById('testimonios');
-            var slider = document.querySelector('.testimonial-slider');
-            var slides = document.querySelectorAll('.testimonial-slide');
+        // Script para el banner de cookies
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptBtn = document.getElementById('accept-cookies');
+            const rejectBtn = document.getElementById('reject-cookies');
             
-            if (testimonios && slider && slides.length > 0) {
-                testimonios.style.display = 'block';
-                testimonios.style.visibility = 'visible';
-                testimonios.style.opacity = '1';
-                
-                slider.style.display = 'block';
-                slider.style.visibility = 'visible';
-                slider.style.opacity = '1';
-                slider.style.overflow = 'visible';
-                slider.style.position = 'relative';
-                slider.style.zIndex = '5';
-                
-                // Asegurarse de que al menos el primer testimonio sea visible
-                if (slides[0]) {
-                    slides[0].style.display = 'block';
-                    slides[0].style.visibility = 'visible';
-                    slides[0].style.opacity = '1';
-                    slides[0].style.zIndex = '6';
-                    slides[0].classList.add('active');
-                }
-                
-                // Ocultar los controles de navegación
-                var controls = document.querySelector('.slider-controls');
-                if (controls) {
-                    controls.style.display = 'none';
-                    controls.style.visibility = 'hidden';
-                }
-                
-                console.log("Script de corrección de testimonios ejecutado - modo automático");
-            } else {
-                console.error("No se pudieron encontrar los elementos de testimonios");
+            // Comprobar si ya se ha tomado una decisión sobre las cookies
+            const cookieConsent = localStorage.getItem('cookieConsent');
+            
+            if (!cookieConsent) {
+                // Mostrar el banner si no hay consentimiento previo
+                cookieBanner.style.display = 'block';
             }
-        }, 1000);
-    });
+            
+            // Manejar clic en aceptar
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieBanner.style.display = 'none';
+                // Aquí se podrían activar cookies de análisis, etc.
+            });
+            
+            // Manejar clic en rechazar
+            rejectBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieBanner.style.display = 'none';
+                // Aquí se desactivarían cookies no esenciales
+            });
+            
+            // Código directo para las FAQ
+            const faqItems = document.querySelectorAll('.faq-item');
+            if (faqItems.length > 0) {
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question');
+                    if (question) {
+                        question.onclick = function() {
+                            const isActive = item.classList.contains('active');
+                            
+                            // Cerrar todas las preguntas
+                            faqItems.forEach(faqItem => {
+                                faqItem.classList.remove('active');
+                            });
+                            
+                            // Si no estaba activa, abrirla
+                            if (!isActive) {
+                                item.classList.add('active');
+                            }
+                        };
+                    }
+                });
+                
+                // Activar la primera pregunta al inicio
+                setTimeout(() => {
+                    faqItems[0].classList.add('active');
+                }, 500);
+            }
+        });
     </script>
     
-    <!-- Script para el banner de cookies -->
+    <!-- Script dedicado exclusivamente para las preguntas frecuentes -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const cookieBanner = document.getElementById('cookie-banner');
-        const acceptBtn = document.getElementById('accept-cookies');
-        const rejectBtn = document.getElementById('reject-cookies');
-        
-        // Comprobar si ya se ha tomado una decisión sobre las cookies
-        const cookieConsent = localStorage.getItem('cookieConsent');
-        
-        if (!cookieConsent) {
-            // Mostrar el banner si no hay consentimiento previo
-            cookieBanner.style.display = 'block';
-        }
-        
-        // Manejar clic en aceptar
-        acceptBtn.addEventListener('click', function() {
-            localStorage.setItem('cookieConsent', 'accepted');
-            cookieBanner.style.display = 'none';
-            // Aquí se podrían activar cookies de análisis, etc.
+        // Script específico para el acordeón de preguntas frecuentes
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Inicializando sistema de FAQ');
+            
+            // Seleccionar todos los elementos FAQ
+            var faqItems = document.querySelectorAll('.faq-item');
+            
+            if (faqItems.length > 0) {
+                console.log('Encontradas ' + faqItems.length + ' preguntas frecuentes');
+                
+                // Configurar cada pregunta
+                faqItems.forEach(function(item) {
+                    var question = item.querySelector('.faq-question');
+                    var answer = item.querySelector('.faq-answer');
+                    
+                    if (question && answer) {
+                        // Asignar directamente el evento click
+                        question.onclick = function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            // Verificar estado actual
+                            var isActive = item.classList.contains('active');
+                            
+                            // Cerrar todas las preguntas
+                            faqItems.forEach(function(faqItem) {
+                                faqItem.classList.remove('active');
+                                var q = faqItem.querySelector('.faq-question');
+                                if (q) q.setAttribute('aria-expanded', 'false');
+                            });
+                            
+                            // Si no estaba activa, activarla
+                            if (!isActive) {
+                                item.classList.add('active');
+                                question.setAttribute('aria-expanded', 'true');
+                            }
+                            
+                            return false;
+                        };
+                        
+                        // Soporte para teclado (accesibilidad)
+                        question.addEventListener('keydown', function(e) {
+                            // Enter o Space
+                            if (e.keyCode === 13 || e.keyCode === 32) {
+                                e.preventDefault();
+                                this.click();
+                            }
+                        });
+                    }
+                });
+                
+                // Activar la primera pregunta después de un breve delay
+                setTimeout(function() {
+                    if (faqItems[0]) {
+                        faqItems[0].classList.add('active');
+                        var firstQuestion = faqItems[0].querySelector('.faq-question');
+                        if (firstQuestion) firstQuestion.setAttribute('aria-expanded', 'true');
+                        console.log('Primera pregunta activada');
+                    }
+                }, 300);
+            }
         });
-        
-        // Manejar clic en rechazar
-        rejectBtn.addEventListener('click', function() {
-            localStorage.setItem('cookieConsent', 'rejected');
-            cookieBanner.style.display = 'none';
-            // Aquí se desactivarían cookies no esenciales
+    </script>
+    
+    <!-- Script directo para el acordeón de módulos -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Función para inicializar el acordeón de módulos
+            function inicializarAcordeonModulos() {
+                console.log('Inicializando acordeón de módulos directamente');
+                
+                // Seleccionar todos los módulos
+                var modulos = document.querySelectorAll('.modulo-minimalista');
+                
+                if (!modulos || modulos.length === 0) {
+                    console.log('No se encontraron módulos');
+                    return;
+                }
+                
+                // Para cada módulo, configurar el comportamiento
+                for (var i = 0; i < modulos.length; i++) {
+                    var modulo = modulos[i];
+                    var titulo = modulo.querySelector('h3');
+                    
+                    if (!titulo) continue;
+                    
+                    // Configurar eventos de clic y táctil
+                    titulo.onclick = function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        var currentModulo = this.parentNode;
+                        var isActive = currentModulo.classList.contains('active');
+                        
+                        // Cerrar todos los módulos
+                        var todosModulos = document.querySelectorAll('.modulo-minimalista');
+                        for (var j = 0; j < todosModulos.length; j++) {
+                            todosModulos[j].classList.remove('active');
+                            
+                            var otroTitulo = todosModulos[j].querySelector('h3');
+                            if (otroTitulo) {
+                                otroTitulo.setAttribute('aria-expanded', 'false');
+                            }
+                        }
+                        
+                        // Si no estaba activo, abrirlo
+                        if (!isActive) {
+                            currentModulo.classList.add('active');
+                            this.setAttribute('aria-expanded', 'true');
+                        }
+                    };
+                    
+                    // Evento táctil para móviles
+                    titulo.addEventListener('touchend', function(e) {
+                        // Solo prevenir el comportamiento predeterminado si es necesario
+                        if (!e.defaultPrevented) {
+                            e.preventDefault();
+                            this.click();
+                        }
+                    });
+                }
+                
+                // Abrir el primer módulo por defecto
+                if (modulos.length > 0 && !modulos[0].classList.contains('active')) {
+                    modulos[0].classList.add('active');
+                    
+                    var primerTitulo = modulos[0].querySelector('h3');
+                    if (primerTitulo) {
+                        primerTitulo.setAttribute('aria-expanded', 'true');
+                    }
+                }
+            }
+            
+            // Inicializar ahora y después de un breve tiempo
+            inicializarAcordeonModulos();
+            setTimeout(inicializarAcordeonModulos, 500);
+            
+            // También en orientationchange para dispositivos móviles
+            window.addEventListener('orientationchange', function() {
+                setTimeout(inicializarAcordeonModulos, 500);
+            });
         });
-    });
     </script>
 </body>
 </html>

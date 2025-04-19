@@ -1,78 +1,169 @@
 /**
- * Acordeón minimalista para módulos - Versión compatible con GitHub Pages
+ * Acordeón minimalista para módulos - Versión optimizada para móviles
  * - Maneja la apertura y cierre de módulos al hacer clic en los títulos
  * - Permite tener un solo módulo abierto a la vez
  * - Abre el primer módulo por defecto
  */
 
-// Enfoque directo para GitHub Pages
-document.addEventListener('DOMContentLoaded', function() {
-    setupAccordion();
-});
-
-// También inicializar cuando la ventana se carga completamente
-window.addEventListener('load', function() {
-    setupAccordion();
-});
-
-// Inicializar también si el DOM ya está cargado
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    setTimeout(function() {
-        setupAccordion();
-    }, 100);
-}
-
-// Función principal para configurar el acordeón
-function setupAccordion() {
-    console.log('Configurando acordeón para GitHub Pages...');
-    
-    // Seleccionar todos los módulos y títulos
-    const modulos = document.querySelectorAll('.modulo-minimalista');
-    
-    if (modulos.length === 0) {
-        console.log('No se encontraron módulos de acordeón');
-        return;
+// Función autoejecutada para evitar conflictos
+(function() {
+    // Función principal para configurar el acordeón
+    function setupAccordion() {
+        console.log('Configurando acordeón para dispositivos móviles y desktop...');
+        
+        // Seleccionar todos los módulos y títulos
+        var modulos = document.querySelectorAll('.modulo-minimalista');
+        
+        if (!modulos || modulos.length === 0) {
+            console.log('No se encontraron módulos de acordeón');
+            // Intentar de nuevo en 200ms
+            setTimeout(setupAccordion, 200);
+            return;
+        }
+        
+        console.log('Encontrados ' + modulos.length + ' módulos de acordeón');
+        
+        // Limpiar eventos previos y cerrar todos los módulos
+        for (var i = 0; i < modulos.length; i++) {
+            var modulo = modulos[i];
+            modulo.classList.remove('active');
+            
+            // Obtener el título del módulo
+            var titulo = modulo.querySelector('h3');
+            
+            if (titulo) {
+                // Clonar y reemplazar para eliminar eventos anteriores
+                var nuevoTitulo = titulo.cloneNode(true);
+                titulo.parentNode.replaceChild(nuevoTitulo, titulo);
+                
+                // Asignar evento onclick directamente usando IIFE para preservar referencia
+                (function(currentModulo) {
+                    nuevoTitulo.onclick = function(e) {
+                        // Prevenir comportamiento por defecto
+                        if (e && e.preventDefault) e.preventDefault();
+                        if (e && e.stopPropagation) e.stopPropagation();
+                        
+                        // Comprobar si este módulo está activo
+                        var isActive = currentModulo.classList.contains('active');
+                        
+                        // Cerrar todos los módulos primero
+                        for (var j = 0; j < modulos.length; j++) {
+                            modulos[j].classList.remove('active');
+                        }
+                        
+                        // Si este módulo no estaba activo, abrirlo
+                        if (!isActive) {
+                            currentModulo.classList.add('active');
+                        }
+                        
+                        return false;
+                    };
+                    
+                    // Añadir soporte para teclado (accesibilidad)
+                    nuevoTitulo.tabIndex = 0;
+                    nuevoTitulo.setAttribute('role', 'button');
+                    nuevoTitulo.addEventListener('keydown', function(e) {
+                        // Si se presiona Enter o Space
+                        if (e.keyCode === 13 || e.keyCode === 32) {
+                            e.preventDefault();
+                            // Simular clic
+                            this.click();
+                        }
+                    });
+                })(modulo);
+            }
+        }
+        
+        // Abrir el primer módulo por defecto
+        if (modulos.length > 0) {
+            modulos[0].classList.add('active');
+        }
     }
     
-    console.log('Encontrados ' + modulos.length + ' módulos de acordeón');
+    // Ejecutar función de inicialización en diferentes momentos para asegurar que se aplique
     
-    // Cerrar todos los módulos primero
-    modulos.forEach(function(modulo) {
-        modulo.classList.remove('active');
-        
-        // Obtener el título del módulo
+    // 1. Intentar inmediatamente si el DOM ya está listo
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setupAccordion();
+    }
+    
+    // 2. Configurar cuando el DOM esté completamente cargado
+    document.addEventListener('DOMContentLoaded', setupAccordion);
+    
+    // 3. También cuando la ventana se cargue completamente
+    window.addEventListener('load', setupAccordion);
+    
+    // 4. Y varios intentos después con diferentes tiempos
+    setTimeout(setupAccordion, 500);
+    setTimeout(setupAccordion, 1000);
+    setTimeout(setupAccordion, 2000);
+    
+    // 5. Adicionalmente, reconfigurar en cambios de orientación del dispositivo
+    window.addEventListener('orientationchange', function() {
+        setTimeout(setupAccordion, 500);
+    });
+    
+    // 6. Y en resize para cubrir cambios de tamaño de ventana
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(setupAccordion, 500);
+    });
+})();
+
+// Funcionalidad del acordeón y preguntas frecuentes
+document.addEventListener('DOMContentLoaded', function() {
+    // Manejo del acordeón de módulos
+    const modulos = document.querySelectorAll('.modulo-minimalista');
+    
+    modulos.forEach(modulo => {
         const titulo = modulo.querySelector('h3');
         
         if (titulo) {
-            // Asignar evento de clic directamente
-            titulo.onclick = function(e) {
-                e.preventDefault();
+            titulo.addEventListener('click', () => {
+                const isActive = modulo.classList.contains('active');
                 
-                // Cerrar todos los módulos primero
-                modulos.forEach(function(m) {
+                // Cierra todos los módulos
+                modulos.forEach(m => {
                     m.classList.remove('active');
                 });
                 
-                // Abrir el módulo actual
-                modulo.classList.add('active');
-                
-                return false; // Prevenir comportamiento por defecto
-            };
+                // Si no estaba activo, lo activa
+                if (!isActive) {
+                    modulo.classList.add('active');
+                }
+            });
         }
     });
     
-    // Abrir el primer módulo por defecto
-    if (modulos.length > 0) {
-        modulos[0].classList.add('active');
+    // Manejo de las preguntas frecuentes
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    if (faqItems.length > 0) {
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            if (question) {
+                question.addEventListener('click', function() {
+                    // Comprobar si ya está activo
+                    const isActive = item.classList.contains('active');
+                    
+                    // Cerrar todas las preguntas
+                    faqItems.forEach(faqItem => {
+                        faqItem.classList.remove('active');
+                    });
+                    
+                    // Si no estaba activo, abrirlo
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+        
+        // Abrir la primera pregunta por defecto
+        setTimeout(() => {
+            faqItems[0].classList.add('active');
+        }, 1000);
     }
-}
-
-// Asegurar que el acordeón se inicialice después de un tiempo
-setTimeout(function() {
-    setupAccordion();
-}, 500);
-
-// Intentar una última vez después de 2 segundos
-setTimeout(function() {
-    setupAccordion();
-}, 2000);
+});
