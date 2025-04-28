@@ -991,7 +991,7 @@ section {
 }
 
 .testimonial-slide {
-    position: absolute !important; /* !important para evitar conflictos con los estilos inline */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -999,7 +999,7 @@ section {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.8s ease;
-    will-change: opacity, visibility; /* Mejora el rendimiento de las animaciones */
+    will-change: opacity, visibility;
     z-index: 1;
 }
 
@@ -2218,5 +2218,122 @@ section {
     
     .faq-item.active .faq-answer {
         padding: 15px;
+    }
+}
+
+/* Prueba social en el banner */
+.social-proof {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-top: 20px;
+    width: fit-content;
+    max-width: 300px;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-proof p {
+    margin-bottom: 2px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+.rating {
+    color: #ffcc00;
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.clients-count {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Popups de compras recientes */
+.purchase-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    max-width: 280px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+}
+
+.purchase-popup.show {
+    animation: slideIn 0.5s forwards;
+    visibility: visible;
+    opacity: 1;
+}
+
+.purchase-popup.hide {
+    animation: slideOut 0.5s forwards;
+}
+
+.purchase-popup-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.purchase-popup-text {
+    flex: 1;
+}
+
+.purchase-popup-text p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.purchase-popup-text strong {
+    color: var(--secondary-color);
+}
+
+.purchase-popup-time {
+    font-size: 0.75rem;
+    color: #777;
+    margin-top: 5px;
+}
+
+.purchase-popup-rating {
+    color: #ffcc00;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
     }
 }

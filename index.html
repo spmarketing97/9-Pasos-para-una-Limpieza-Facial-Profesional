@@ -86,6 +86,13 @@
                 <div class="cta-buttons">
                     <a href="#contenido" class="btn btn-secondary" aria-label="Ver el contenido del curso">Ver Contenido</a>
                 </div>
+                <div class="social-proof">
+                    <p>Curso evaluado por más de 1,500 estudiantes satisfechas</p>
+                    <div class="rating">
+                        <span>★★★★★</span>
+                    </div>
+                    <div class="clients-count">97% de nuestras estudiantes recomiendan este curso</div>
+                </div>
             </div>
         </div>
     </header>
@@ -97,7 +104,7 @@
                 <h2 class="video-title text-center">Descubre cómo lo vas a lograr</h2>
             </div>
             <div class="video-container" data-aos="fade-up">
-                <iframe id="banner-video" width="100%" height="500" src="https://www.youtube.com/embed/0Dcoml0nKkE?autoplay=1&loop=0&playlist=0Dcoml0nKkE&mute=1&rel=0&modestbranding=1&loading=lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe id="banner-video" width="100%" height="500" src="https://www.youtube.com/embed/0Dcoml0nKkE?loop=0&rel=0&modestbranding=1&loading=lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -149,7 +156,7 @@
     <!-- Testimonios -->
     <section id="testimonios" class="testimonials">
         <div class="container">
-            <h2 data-aos="fade-up">LO QUE DICEN NUESTROS ALUMNOS</h2>
+            <h2 data-aos="fade-up">LO QUE DICEN NUESTRAS ALUMNAS</h2>
             <div class="testimonial-slider" data-aos="fade-up">
                 <!-- 15 Testimonios con nuevas imágenes -->
                 <div class="testimonial-slide">
@@ -199,8 +206,8 @@
                         <div class="quote">
                             <i class="fas fa-quote-left"></i>
                             <p>Gracias a este curso, he podido ofrecer un servicio de calidad superior en mi spa. Mis clientes notan la diferencia y las reservas han aumentado un 40% en solo dos meses.</p>
-                            <h4>Juan Pérez</h4>
-                            <span>Propietario de Spa</span>
+                            <h4>Andrea López</h4>
+                            <span>Propietaria de Spa</span>
                         </div>
                     </div>
                 </div>
@@ -225,8 +232,8 @@
                         <div class="quote">
                             <i class="fas fa-quote-left"></i>
                             <p>Recomiendo este curso a todos los que quieran profesionalizarse en el área de la estética. Es completo, muy bien explicado y me ha permitido destacarme entre la competencia local.</p>
-                            <h4>Pedro Ramírez</h4>
-                            <span>Instructor de Belleza</span>
+                            <h4>Patricia Ramírez</h4>
+                            <span>Instructora de Belleza</span>
                         </div>
                     </div>
                 </div>
@@ -251,8 +258,8 @@
                         <div class="quote">
                             <i class="fas fa-quote-left"></i>
                             <p>Después de tomar este curso, pude triplicar mis ingresos en mi salón de belleza. Los clientes valoran mucho la profesionalidad con la que realizo las limpiezas faciales ahora.</p>
-                            <h4>Roberto Sánchez</h4>
-                            <span>Dueño de Salón de Belleza</span>
+                            <h4>Rosa Sánchez</h4>
+                            <span>Dueña de Salón de Belleza</span>
                         </div>
                     </div>
                 </div>
@@ -277,7 +284,7 @@
                         <div class="quote">
                             <i class="fas fa-quote-left"></i>
                             <p>Aprendí técnicas que no había visto en ningún otro curso. La inversión valió cada centavo. Mis clientes notan la diferencia y me recomiendan constantemente con sus amigos.</p>
-                            <h4>Fernando López</h4>
+                            <h4>Fernanda López</h4>
                             <span>Esteticista Independiente</span>
                         </div>
                     </div>
@@ -316,8 +323,8 @@
                         <div class="quote">
                             <i class="fas fa-quote-left"></i>
                             <p>Me encantó el enfoque científico del curso. Entender la fisiología de la piel me ha permitido ofrecer tratamientos personalizados a cada cliente según sus necesidades específicas.</p>
-                            <h4>Carlos Mendoza</h4>
-                            <span>Estético Profesional</span>
+                            <h4>Carla Mendoza</h4>
+                            <span>Estética Profesional</span>
                         </div>
                     </div>
                 </div>
@@ -737,13 +744,14 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/accordion.js"></script>
     <script src="script.js"></script>
     <script src="js/video-autoplay.js"></script>
     <script src="js/countdown.js"></script>
     <!-- Scripts de acordeón desactivados para evitar conflictos con la implementación directa -->
     <!-- <script src="js/modulos-acordeon.js"></script> -->
     <!-- <script src="js/accordion.js"></script> -->
-    <script src="js/testimonial-slider.js"></script>
+    <!-- <script src="js/testimonial-slider.js"></script> -->
     <script src="js/app.js"></script>
     <script src="chatbot/chatbot.js"></script>
     <script>
@@ -774,180 +782,247 @@
                 cookieBanner.style.display = 'none';
                 // Aquí se desactivarían cookies no esenciales
             });
-            
-            // Código directo para las FAQ
-            const faqItems = document.querySelectorAll('.faq-item');
-            if (faqItems.length > 0) {
-                faqItems.forEach(item => {
-                    const question = item.querySelector('.faq-question');
-                    if (question) {
-                        question.onclick = function() {
-                            const isActive = item.classList.contains('active');
-                            
-                            // Cerrar todas las preguntas
-                            faqItems.forEach(faqItem => {
-                                faqItem.classList.remove('active');
-                            });
-                            
-                            // Si no estaba activa, abrirla
-                            if (!isActive) {
-                                item.classList.add('active');
-                            }
-                        };
-                    }
-                });
-                
-                // Activar la primera pregunta al inicio
-                setTimeout(() => {
-                    faqItems[0].classList.add('active');
-                }, 500);
-            }
         });
     </script>
     
-    <!-- Script dedicado exclusivamente para las preguntas frecuentes -->
-    <script>
-        // Script específico para el acordeón de preguntas frecuentes
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Inicializando sistema de FAQ');
-            
-            // Seleccionar todos los elementos FAQ
-            var faqItems = document.querySelectorAll('.faq-item');
-            
-            if (faqItems.length > 0) {
-                console.log('Encontradas ' + faqItems.length + ' preguntas frecuentes');
-                
-                // Configurar cada pregunta
-                faqItems.forEach(function(item) {
-                    var question = item.querySelector('.faq-question');
-                    var answer = item.querySelector('.faq-answer');
-                    
-                    if (question && answer) {
-                        // Asignar directamente el evento click
-                        question.onclick = function(e) {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            
-                            // Verificar estado actual
-                            var isActive = item.classList.contains('active');
-                            
-                            // Cerrar todas las preguntas
-                            faqItems.forEach(function(faqItem) {
-                                faqItem.classList.remove('active');
-                                var q = faqItem.querySelector('.faq-question');
-                                if (q) q.setAttribute('aria-expanded', 'false');
-                            });
-                            
-                            // Si no estaba activa, activarla
-                            if (!isActive) {
-                                item.classList.add('active');
-                                question.setAttribute('aria-expanded', 'true');
-                            }
-                            
-                            return false;
-                        };
-                        
-                        // Soporte para teclado (accesibilidad)
-                        question.addEventListener('keydown', function(e) {
-                            // Enter o Space
-                            if (e.keyCode === 13 || e.keyCode === 32) {
-                                e.preventDefault();
-                                this.click();
-                            }
-                        });
-                    }
-                });
-                
-                // Activar la primera pregunta después de un breve delay
-                setTimeout(function() {
-                    if (faqItems[0]) {
-                        faqItems[0].classList.add('active');
-                        var firstQuestion = faqItems[0].querySelector('.faq-question');
-                        if (firstQuestion) firstQuestion.setAttribute('aria-expanded', 'true');
-                        console.log('Primera pregunta activada');
-                    }
-                }, 300);
-            }
-        });
-    </script>
-    
-    <!-- Script directo para el acordeón de módulos -->
+    <!-- Script específico para chatbot -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Función para inicializar el acordeón de módulos
-            function inicializarAcordeonModulos() {
-                console.log('Inicializando acordeón de módulos directamente');
+            // Arreglar funcionalidad del chatbot
+            setTimeout(function() {
+                const chatIcon = document.getElementById('chat-bot-icon');
+                const chatContainer = document.getElementById('chat-container');
+                const closeChat = document.getElementById('close-chat');
+                const chatBotPopup = document.getElementById('chat-bot-popup');
                 
-                // Seleccionar todos los módulos
-                var modulos = document.querySelectorAll('.modulo-minimalista');
-                
-                if (!modulos || modulos.length === 0) {
-                    console.log('No se encontraron módulos');
-                    return;
-                }
-                
-                // Para cada módulo, configurar el comportamiento
-                for (var i = 0; i < modulos.length; i++) {
-                    var modulo = modulos[i];
-                    var titulo = modulo.querySelector('h3');
+                if (chatIcon && chatContainer && closeChat) {
+                    // Eliminar event listeners antiguos si existen
+                    const newChatIcon = chatIcon.cloneNode(true);
+                    chatIcon.parentNode.replaceChild(newChatIcon, chatIcon);
                     
-                    if (!titulo) continue;
+                    const newCloseChat = closeChat.cloneNode(true);
+                    closeChat.parentNode.replaceChild(newCloseChat, closeChat);
                     
-                    // Configurar eventos de clic y táctil
-                    titulo.onclick = function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        
-                        var currentModulo = this.parentNode;
-                        var isActive = currentModulo.classList.contains('active');
-                        
-                        // Cerrar todos los módulos
-                        var todosModulos = document.querySelectorAll('.modulo-minimalista');
-                        for (var j = 0; j < todosModulos.length; j++) {
-                            todosModulos[j].classList.remove('active');
+                    // Añadir nuevos event listeners
+                    newChatIcon.addEventListener('click', function() {
+                        if (chatContainer.classList.contains('active')) {
+                            chatContainer.classList.remove('active');
+                        } else {
+                            chatContainer.classList.add('active');
                             
-                            var otroTitulo = todosModulos[j].querySelector('h3');
-                            if (otroTitulo) {
-                                otroTitulo.setAttribute('aria-expanded', 'false');
+                            // Ocultar el popup si está visible
+                            if (chatBotPopup && chatBotPopup.classList.contains('active')) {
+                                chatBotPopup.classList.remove('active');
                             }
-                        }
-                        
-                        // Si no estaba activo, abrirlo
-                        if (!isActive) {
-                            currentModulo.classList.add('active');
-                            this.setAttribute('aria-expanded', 'true');
-                        }
-                    };
-                    
-                    // Evento táctil para móviles
-                    titulo.addEventListener('touchend', function(e) {
-                        // Solo prevenir el comportamiento predeterminado si es necesario
-                        if (!e.defaultPrevented) {
-                            e.preventDefault();
-                            this.click();
                         }
                     });
-                }
-                
-                // Abrir el primer módulo por defecto
-                if (modulos.length > 0 && !modulos[0].classList.contains('active')) {
-                    modulos[0].classList.add('active');
                     
-                    var primerTitulo = modulos[0].querySelector('h3');
-                    if (primerTitulo) {
-                        primerTitulo.setAttribute('aria-expanded', 'true');
-                    }
+                    newCloseChat.addEventListener('click', function() {
+                        chatContainer.classList.remove('active');
+                    });
+                    
+                    console.log('Chatbot inicializado correctamente');
                 }
+            }, 1000);
+        });
+    </script>
+    
+    <!-- Script específico para preguntas frecuentes -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Asegurarse de que las preguntas frecuentes funcionen correctamente
+            setTimeout(function() {
+                const faqItems = document.querySelectorAll('.faq-item');
+                if (faqItems.length > 0) {
+                    console.log('Configurando FAQ:', faqItems.length, 'items');
+                    
+                    // Eliminar event listeners previos
+                    faqItems.forEach(item => {
+                        const question = item.querySelector('.faq-question');
+                        if (question) {
+                            const clone = question.cloneNode(true);
+                            question.parentNode.replaceChild(clone, question);
+                        }
+                    });
+                    
+                    // Añadir nuevos event listeners
+                    faqItems.forEach(item => {
+                        const question = item.querySelector('.faq-question');
+                        if (question) {
+                            question.addEventListener('click', function(e) {
+                                console.log('Clic en pregunta');
+                                // Verificar si está activo
+                                const isActive = item.classList.contains('active');
+                                
+                                // Cerrar todos
+                                faqItems.forEach(faq => {
+                                    faq.classList.remove('active');
+                                });
+                                
+                                // Si no estaba activo, activar
+                                if (!isActive) {
+                                    item.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                    
+                    // Activar el primero por defecto
+                    faqItems[0].classList.add('active');
+                }
+            }, 1000);
+        });
+    </script>
+    
+    <!-- Script para los popups de compras recientes -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Datos de los popups de compras recientes (50 datos)
+            const purchaseData = [
+                { name: "María", location: "Madrid", time: "Hace 5 minutos", rating: 5 },
+                { name: "Laura", location: "Barcelona", time: "Hace 8 minutos", rating: 5 },
+                { name: "Sofía", location: "Valencia", time: "Hace 12 minutos", rating: 5 },
+                { name: "Ana", location: "Sevilla", time: "Hace 15 minutos", rating: 5 },
+                { name: "Carmen", location: "Bilbao", time: "Hace 18 minutos", rating: 5 },
+                { name: "Lucía", location: "Zaragoza", time: "Hace 20 minutos", rating: 5 },
+                { name: "Elena", location: "Málaga", time: "Hace 25 minutos", rating: 5 },
+                { name: "Patricia", location: "Alicante", time: "Hace 27 minutos", rating: 5 },
+                { name: "Sara", location: "Córdoba", time: "Hace 30 minutos", rating: 5 },
+                { name: "Isabel", location: "Granada", time: "Hace 32 minutos", rating: 5 },
+                { name: "Paula", location: "Toledo", time: "Hace 35 minutos", rating: 5 },
+                { name: "Cristina", location: "Murcia", time: "Hace 38 minutos", rating: 5 },
+                { name: "Beatriz", location: "Salamanca", time: "Hace 40 minutos", rating: 5 },
+                { name: "Natalia", location: "Santander", time: "Hace 45 minutos", rating: 5 },
+                { name: "Adriana", location: "Cádiz", time: "Hace 48 minutos", rating: 5 },
+                { name: "Marina", location: "Huelva", time: "Hace 50 minutos", rating: 5 },
+                { name: "Silvia", location: "Jaén", time: "Hace 55 minutos", rating: 5 },
+                { name: "Alba", location: "Almería", time: "Hace 1 hora", rating: 5 },
+                { name: "Angela", location: "Ciudad Real", time: "Hace 1 hora", rating: 5 },
+                { name: "Julia", location: "Castellón", time: "Hace 1 hora", rating: 5 },
+                { name: "Claudia", location: "La Coruña", time: "Hace 1 hora", rating: 5 },
+                { name: "Marta", location: "León", time: "Hace 1 hora", rating: 4 },
+                { name: "Rosa", location: "Ávila", time: "Hace 1 hora", rating: 5 },
+                { name: "Carolina", location: "Cáceres", time: "Hace 2 horas", rating: 5 },
+                { name: "Daniela", location: "Badajoz", time: "Hace 2 horas", rating: 5 },
+                { name: "Pilar", location: "Pamplona", time: "Hace 2 horas", rating: 5 },
+                { name: "Susana", location: "Logroño", time: "Hace 2 horas", rating: 5 },
+                { name: "Raquel", location: "Segovia", time: "Hace 2 horas", rating: 5 },
+                { name: "Andrea", location: "Burgos", time: "Hace 3 horas", rating: 5 },
+                { name: "Teresa", location: "Albacete", time: "Hace 3 horas", rating: 5 },
+                { name: "Miriam", location: "Tarragona", time: "Hace 3 horas", rating: 5 },
+                { name: "Nuria", location: "Girona", time: "Hace 3 horas", rating: 4 },
+                { name: "Eva", location: "Lleida", time: "Hace 3 horas", rating: 5 },
+                { name: "Sonia", location: "Ourense", time: "Hace 4 horas", rating: 5 },
+                { name: "Montserrat", location: "Lugo", time: "Hace 4 horas", rating: 5 },
+                { name: "Inés", location: "Pontevedra", time: "Hace 4 horas", rating: 5 },
+                { name: "Victoria", location: "Valladolid", time: "Hace 4 horas", rating: 5 },
+                { name: "Amparo", location: "Zamora", time: "Hace 5 horas", rating: 5 },
+                { name: "Irene", location: "Palencia", time: "Hace 5 horas", rating: 5 },
+                { name: "Lourdes", location: "Soria", time: "Hace 5 horas", rating: 5 },
+                { name: "Vanesa", location: "Teruel", time: "Hace 5 horas", rating: 5 },
+                { name: "Clara", location: "Huesca", time: "Hace 6 horas", rating: 5 },
+                { name: "Yolanda", location: "Cuenca", time: "Hace 6 horas", rating: 4 },
+                { name: "Lorena", location: "Guadalajara", time: "Hace 6 horas", rating: 5 },
+                { name: "Alejandra", location: "Tarragona", time: "Hace 6 horas", rating: 5 },
+                { name: "Noelia", location: "Alicante", time: "Hace 7 horas", rating: 5 },
+                { name: "Esther", location: "Álava", time: "Hace 7 horas", rating: 5 },
+                { name: "Verónica", location: "Guipúzcoa", time: "Hace 7 horas", rating: 5 },
+                { name: "Diana", location: "Vizcaya", time: "Hace 7 horas", rating: 5 },
+                { name: "Mónica", location: "Madrid", time: "Hace 8 horas", rating: 5 }
+            ];
+            
+            // Variables para manejar los popups
+            let currentPopupIndex = 0;
+            let currentPopupElement = null;
+            
+            // Función para crear calificación de estrellas
+            function createStarRating(rating) {
+                let stars = '';
+                for (let i = 0; i < 5; i++) {
+                    stars += (i < rating) ? '★' : '☆';
+                }
+                return stars;
             }
             
-            // Inicializar ahora y después de un breve tiempo
-            inicializarAcordeonModulos();
-            setTimeout(inicializarAcordeonModulos, 500);
+            // Función para crear un popup de compra
+            function createPurchasePopup(data) {
+                const popup = document.createElement('div');
+                popup.className = 'purchase-popup';
+                
+                // Estilo directo para asegurar que se muestre correctamente
+                popup.style.position = 'fixed';
+                popup.style.bottom = '20px';
+                popup.style.left = '20px';
+                popup.style.zIndex = '9999';
+                popup.style.backgroundColor = 'white';
+                popup.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+                popup.style.borderRadius = '8px';
+                popup.style.padding = '15px';
+                popup.style.maxWidth = '280px';
+                popup.style.display = 'flex';
+                popup.style.flexDirection = 'column';
+                popup.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                popup.style.opacity = '0';
+                popup.style.transform = 'translateY(20px)';
+                // Es importante reemplazar visibility: hidden por visible
+                popup.style.visibility = 'visible';
+                
+                // HTML del contenido del popup
+                popup.innerHTML = `
+                    <div class="purchase-popup-content">
+                        <div class="purchase-popup-text">
+                            <p><strong>${data.name}</strong> de ${data.location} ha comprado el curso</p>
+                            <div style="color: #ffcc00; font-size: 0.9rem; margin-top: 5px;">${createStarRating(data.rating)}</div>
+                            <div style="font-size: 0.75rem; color: #777; margin-top: 5px;">${data.time}</div>
+                        </div>
+                    </div>
+                `;
+                
+                return popup;
+            }
             
-            // También en orientationchange para dispositivos móviles
-            window.addEventListener('orientationchange', function() {
-                setTimeout(inicializarAcordeonModulos, 500);
-            });
+            // Función para mostrar el siguiente popup
+            function showNextPopup() {
+                const purchase = purchaseData[currentPopupIndex];
+                const popup = createPurchasePopup(purchase);
+                
+                // Asegurarnos de que se añada directamente al body
+                document.body.appendChild(popup);
+                currentPopupElement = popup;
+                
+                console.log('Mostrando popup de compra:', purchase.name);
+                
+                // Animar la aparición del popup
+                setTimeout(() => {
+                    popup.style.opacity = '1';
+                    popup.style.transform = 'translateY(0)';
+                }, 100);
+                
+                // Incrementamos para el próximo
+                currentPopupIndex = (currentPopupIndex + 1) % purchaseData.length;
+                
+                // Programamos la ocultación en 5 segundos
+                setTimeout(() => {
+                    if (popup && popup.parentNode) {
+                        popup.style.opacity = '0';
+                        popup.style.transform = 'translateY(20px)';
+                        
+                        setTimeout(() => {
+                            if (popup && popup.parentNode) {
+                                popup.parentNode.removeChild(popup);
+                                currentPopupElement = null;
+                                
+                                // Programamos el siguiente popup después de 10 segundos
+                                setTimeout(showNextPopup, 10000);
+                            }
+                        }, 500);
+                    }
+                }, 5000);
+            }
+            
+            // Comenzar a mostrar popups después de que la página se haya cargado
+            console.log('Iniciando sistema de popups de compras recientes...');
+            setTimeout(showNextPopup, 3000);
         });
     </script>
 </body>

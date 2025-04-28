@@ -8,6 +8,92 @@ AOS.init({
 
 // Contador regresivo y manejo de cookies
 document.addEventListener('DOMContentLoaded', function() {
+    // Inicialización del slider de testimonios después de que todo se cargue
+    setTimeout(function() {
+        initializeTestimonialSlider();
+    }, 500);
+
+    // Función para inicializar el slider de testimonios
+    function initializeTestimonialSlider() {
+        console.log('Inicializando slider de testimonios...');
+        const testimonialSlider = document.querySelector('.testimonial-slider');
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const prevButton = document.querySelector('.prev-button');
+        const nextButton = document.querySelector('.next-button');
+        
+        if (testimonialSlider && testimonialSlides.length > 0) {
+            let currentSlide = 0;
+            let testimonialInterval;
+            
+            // Asegurarse de que todos los slides sean visibles pero inactivos al inicio
+            testimonialSlides.forEach((slide, index) => {
+                slide.style.position = 'absolute';
+                slide.style.opacity = '0';
+                slide.style.visibility = 'hidden';
+                slide.classList.remove('active');
+            });
+            
+            // Activar el primer slide
+            if (testimonialSlides.length > 0) {
+                testimonialSlides[0].classList.add('active');
+                testimonialSlides[0].style.opacity = '1';
+                testimonialSlides[0].style.visibility = 'visible';
+            }
+            
+            // Función para mostrar un slide específico
+            function showSlide(index) {
+                // Limita el índice al rango de slides disponibles
+                if (index < 0) index = testimonialSlides.length - 1;
+                if (index >= testimonialSlides.length) index = 0;
+                
+                // Quita la clase active de todos los slides
+                testimonialSlides.forEach(slide => {
+                    slide.classList.remove('active');
+                    slide.style.opacity = '0';
+                    slide.style.visibility = 'hidden';
+                });
+                
+                // Añade la clase active al slide actual
+                testimonialSlides[index].classList.add('active');
+                testimonialSlides[index].style.opacity = '1';
+                testimonialSlides[index].style.visibility = 'visible';
+                currentSlide = index;
+            }
+            
+            // Función para ir al siguiente slide
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+            
+            // Función para ir al slide anterior
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+            
+            // Configurar los botones de navegación
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    nextSlide();
+                    // Reinicia el intervalo cuando se hace clic manualmente
+                    clearInterval(testimonialInterval);
+                    testimonialInterval = setInterval(nextSlide, 10000);
+                });
+            }
+            
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    prevSlide();
+                    // Reinicia el intervalo cuando se hace clic manualmente
+                    clearInterval(testimonialInterval);
+                    testimonialInterval = setInterval(nextSlide, 10000);
+                });
+            }
+            
+            // Inicia la rotación automática
+            testimonialInterval = setInterval(nextSlide, 10000);
+        }
+    }
+    
     // Configuración del contador: 25 minutos en segundos
     const COUNTDOWN_DURATION = 25 * 60;
     
@@ -207,31 +293,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const faqItems = document.querySelectorAll('.faq-item');
     
     if (faqItems.length > 0) {
+        // Eliminar cualquier event listener previo
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
-            const answer = item.querySelector('.faq-answer');
+            if (question) {
+                const newQuestion = question.cloneNode(true);
+                question.parentNode.replaceChild(newQuestion, question);
+            }
+        });
+        
+        // Añadir nuevos event listeners
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
             
             if (question) {
-                question.addEventListener('click', () => {
+                question.addEventListener('click', function() {
                     // Comprobar si el elemento actual está activo
                     const isActive = item.classList.contains('active');
                     
                     // Cerrar todas las preguntas abiertas
                     faqItems.forEach(faqItem => {
                         faqItem.classList.remove('active');
+                        const q = faqItem.querySelector('.faq-question');
+                        if (q) q.setAttribute('aria-expanded', 'false');
                     });
                     
                     // Si el elemento no estaba activo, abrirlo
                     if (!isActive) {
                         item.classList.add('active');
+                        question.setAttribute('aria-expanded', 'true');
                     }
                 });
+                
+                // Configuración inicial de ARIA
+                question.setAttribute('aria-expanded', item.classList.contains('active'));
             }
         });
         
         // Activar la primera pregunta por defecto
         if (faqItems.length > 0) {
             faqItems[0].classList.add('active');
+            const firstQuestion = faqItems[0].querySelector('.faq-question');
+            if (firstQuestion) firstQuestion.setAttribute('aria-expanded', 'true');
         }
     }
     
@@ -288,9 +391,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     });
 
-    // La funcionalidad del slider de testimonios se ha movido a js/testimonial-slider.js
-    // para mejorar la organización del código y evitar conflictos
-
     // Flecha volver arriba
     const backToTop = document.querySelector('.back-to-top');
     
@@ -310,4 +410,172 @@ document.addEventListener('DOMContentLoaded', function() {
             block: 'start'
         });
     });
+    
+    // Funcionalidad para los popups de compras recientes
+    // Datos de los 50 popups de compras recientes
+    const purchaseData = [
+        { name: "María", location: "Madrid", time: "Hace 5 minutos", rating: 5 },
+        { name: "Laura", location: "Barcelona", time: "Hace 8 minutos", rating: 5 },
+        { name: "Sofía", location: "Valencia", time: "Hace 12 minutos", rating: 5 },
+        { name: "Ana", location: "Sevilla", time: "Hace 15 minutos", rating: 5 },
+        { name: "Carmen", location: "Bilbao", time: "Hace 18 minutos", rating: 5 },
+        { name: "Lucía", location: "Zaragoza", time: "Hace 20 minutos", rating: 5 },
+        { name: "Elena", location: "Málaga", time: "Hace 25 minutos", rating: 5 },
+        { name: "Patricia", location: "Alicante", time: "Hace 27 minutos", rating: 5 },
+        { name: "Sara", location: "Córdoba", time: "Hace 30 minutos", rating: 5 },
+        { name: "Isabel", location: "Granada", time: "Hace 32 minutos", rating: 5 },
+        { name: "Paula", location: "Toledo", time: "Hace 35 minutos", rating: 5 },
+        { name: "Cristina", location: "Murcia", time: "Hace 38 minutos", rating: 5 },
+        { name: "Beatriz", location: "Salamanca", time: "Hace 40 minutos", rating: 5 },
+        { name: "Natalia", location: "Santander", time: "Hace 45 minutos", rating: 5 },
+        { name: "Adriana", location: "Cádiz", time: "Hace 48 minutos", rating: 5 },
+        { name: "Marina", location: "Huelva", time: "Hace 50 minutos", rating: 5 },
+        { name: "Silvia", location: "Jaén", time: "Hace 55 minutos", rating: 5 },
+        { name: "Alba", location: "Almería", time: "Hace 1 hora", rating: 5 },
+        { name: "Angela", location: "Ciudad Real", time: "Hace 1 hora", rating: 5 },
+        { name: "Julia", location: "Castellón", time: "Hace 1 hora", rating: 5 },
+        { name: "Claudia", location: "La Coruña", time: "Hace 1 hora", rating: 5 },
+        { name: "Marta", location: "León", time: "Hace 1 hora", rating: 4 },
+        { name: "Rosa", location: "Ávila", time: "Hace 1 hora", rating: 5 },
+        { name: "Carolina", location: "Cáceres", time: "Hace 2 horas", rating: 5 },
+        { name: "Daniela", location: "Badajoz", time: "Hace 2 horas", rating: 5 },
+        { name: "Pilar", location: "Pamplona", time: "Hace 2 horas", rating: 5 },
+        { name: "Susana", location: "Logroño", time: "Hace 2 horas", rating: 5 },
+        { name: "Raquel", location: "Segovia", time: "Hace 2 horas", rating: 5 },
+        { name: "Andrea", location: "Burgos", time: "Hace 3 horas", rating: 5 },
+        { name: "Teresa", location: "Albacete", time: "Hace 3 horas", rating: 5 },
+        { name: "Miriam", location: "Tarragona", time: "Hace 3 horas", rating: 5 },
+        { name: "Nuria", location: "Girona", time: "Hace 3 horas", rating: 4 },
+        { name: "Eva", location: "Lleida", time: "Hace 3 horas", rating: 5 },
+        { name: "Sonia", location: "Ourense", time: "Hace 4 horas", rating: 5 },
+        { name: "Montserrat", location: "Lugo", time: "Hace 4 horas", rating: 5 },
+        { name: "Inés", location: "Pontevedra", time: "Hace 4 horas", rating: 5 },
+        { name: "Victoria", location: "Valladolid", time: "Hace 4 horas", rating: 5 },
+        { name: "Amparo", location: "Zamora", time: "Hace 5 horas", rating: 5 },
+        { name: "Irene", location: "Palencia", time: "Hace 5 horas", rating: 5 },
+        { name: "Lourdes", location: "Soria", time: "Hace 5 horas", rating: 5 },
+        { name: "Vanesa", location: "Teruel", time: "Hace 5 horas", rating: 5 },
+        { name: "Clara", location: "Huesca", time: "Hace 6 horas", rating: 5 },
+        { name: "Yolanda", location: "Cuenca", time: "Hace 6 horas", rating: 4 },
+        { name: "Lorena", location: "Guadalajara", time: "Hace 6 horas", rating: 5 },
+        { name: "Alejandra", location: "Tarragona", time: "Hace 6 horas", rating: 5 },
+        { name: "Noelia", location: "Alicante", time: "Hace 7 horas", rating: 5 },
+        { name: "Esther", location: "Álava", time: "Hace 7 horas", rating: 5 },
+        { name: "Verónica", location: "Guipúzcoa", time: "Hace 7 horas", rating: 5 },
+        { name: "Diana", location: "Vizcaya", time: "Hace 7 horas", rating: 5 },
+        { name: "Mónica", location: "Madrid", time: "Hace 8 horas", rating: 5 }
+    ];
+
+    const popupsContainer = document.getElementById('purchase-popups');
+    let currentPopupIndex = 0;
+    let currentPopupElement = null;
+
+    // Función para crear una calificación por estrellas
+    function createStarRating(rating) {
+        let stars = '';
+        for (let i = 0; i < 5; i++) {
+            if (i < rating) {
+                stars += '★';
+            } else {
+                stars += '☆';
+            }
+        }
+        return stars;
+    }
+
+    // Función para crear un popup de compra
+    function createPurchasePopup(purchaseData) {
+        const popup = document.createElement('div');
+        popup.className = 'purchase-popup';
+        
+        // Aplicar estilos directamente para forzar la posición y visibilidad
+        popup.style.position = 'fixed';
+        popup.style.bottom = '20px';
+        popup.style.left = '20px';
+        popup.style.zIndex = '9999';
+        popup.style.backgroundColor = 'white';
+        popup.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+        popup.style.borderRadius = '8px';
+        popup.style.padding = '15px';
+        popup.style.maxWidth = '280px';
+        popup.style.display = 'flex';
+        popup.style.flexDirection = 'column';
+        popup.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        popup.style.opacity = '0';
+        popup.style.transform = 'translateY(20px)';
+        
+        const content = `
+            <div class="purchase-popup-content">
+                <div class="purchase-popup-text">
+                    <p><strong>${purchaseData.name}</strong> de ${purchaseData.location} ha comprado el curso</p>
+                    <div class="purchase-popup-rating" style="color: #ffcc00; font-size: 0.9rem; margin-top: 5px;">${createStarRating(purchaseData.rating)}</div>
+                    <div class="purchase-popup-time" style="font-size: 0.75rem; color: #777; margin-top: 5px;">${purchaseData.time}</div>
+                </div>
+            </div>
+        `;
+        
+        popup.innerHTML = content;
+        
+        return popup;
+    }
+
+    // Función para mostrar un popup
+    function showPopup() {
+        // Si hay un popup actualmente visible, lo ocultamos
+        if (currentPopupElement) {
+            currentPopupElement.style.opacity = '0';
+            currentPopupElement.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                if (currentPopupElement && currentPopupElement.parentNode) {
+                    currentPopupElement.parentNode.removeChild(currentPopupElement);
+                }
+                currentPopupElement = null;
+                
+                // Mostrar el siguiente popup después de un pequeño retraso
+                setTimeout(showNextPopup, 500);
+            }, 500);
+        } else {
+            showNextPopup();
+        }
+    }
+
+    // Función para mostrar el siguiente popup
+    function showNextPopup() {
+        const purchase = purchaseData[currentPopupIndex];
+        const popup = createPurchasePopup(purchase);
+        
+        document.body.appendChild(popup);
+        currentPopupElement = popup;
+        
+        // Mostramos el popup con una animación
+        setTimeout(() => {
+            popup.style.opacity = '1';
+            popup.style.transform = 'translateY(0)';
+        }, 100);
+        
+        // Incrementamos el índice para el próximo popup
+        currentPopupIndex = (currentPopupIndex + 1) % purchaseData.length;
+        
+        // Programamos la ocultación del popup después de 5 segundos
+        setTimeout(() => {
+            if (popup && popup.parentNode) {
+                popup.style.opacity = '0';
+                popup.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    if (popup && popup.parentNode) {
+                        popup.parentNode.removeChild(popup);
+                    }
+                    currentPopupElement = null;
+                }, 500);
+            }
+        }, 5000);
+        
+        // Programamos la aparición del siguiente popup después de 10 segundos
+        setTimeout(showPopup, 10000);
+    }
+
+    // Comenzamos a mostrar popups después de que la página se haya cargado completamente
+    setTimeout(showPopup, 3000);
 });
